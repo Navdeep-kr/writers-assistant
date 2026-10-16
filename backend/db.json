@@ -1,0 +1,87 @@
+{
+  "users": [
+    {
+      "id": "user-1",
+      "email": "demo@writingassistant.ai",
+      "password": "password123",
+      "token": "mock-jwt-742ebbaf-abca-473f-aeb3-b8dcd1bce1f1",
+      "xp": 450,
+      "level": 4,
+      "streak": 12,
+      "lastLogin": "2026-10-16T17:30:24.325Z"
+    },
+    {
+      "id": "usr-1ed42e69-b4ad-4497-aec5-069ca5412cd9",
+      "name": "Test Writer",
+      "email": "testuser_847852199@example.com",
+      "phoneNumber": "",
+      "password": "password123",
+      "token": "mock-jwt-9dcad86f-14d3-4507-9ab1-e33520756c57",
+      "xp": 100,
+      "level": 1,
+      "streak": 1,
+      "lastLogin": "2026-10-16T17:30:24.393Z"
+    },
+    {
+      "id": "usr-4f0f8752-a0a2-43ec-8294-642c75ad438f",
+      "name": "Alex Vance",
+      "email": "author_1d12aa92@example.com",
+      "phoneNumber": "+1-555-0199",
+      "password": "securePassword123",
+      "token": "mock-jwt-cf9a910b-36c8-444d-b3dd-f3457b3747f4",
+      "xp": 100,
+      "level": 1,
+      "streak": 1,
+      "lastLogin": "2026-10-16T17:36:56.349Z"
+    },
+    {
+      "id": "usr-b4cb344a-f350-4de8-8adc-642c95f3575e",
+      "name": "Test User",
+      "email": "testuser@example.com",
+      "phoneNumber": "",
+      "password": "password123",
+      "token": "mock-jwt-75078553-7d34-4932-a139-a6e327c956ca",
+      "xp": 100,
+      "level": 1,
+      "streak": 1,
+      "lastLogin": "2026-10-16T19:02:42.367Z"
+    },
+    {
+      "id": "usr-fd55730c-e074-43cf-8670-ff2ee4bdd420",
+      "name": "Public Tester",
+      "email": "public_test_1792179164954@example.com",
+      "phoneNumber": "",
+      "password": "password123",
+      "token": "mock-jwt-a68969e8-4560-4180-882a-f2b22a26cdc8",
+      "xp": 100,
+      "level": 1,
+      "streak": 1,
+      "lastLogin": "2026-10-16T19:32:44.958Z"
+    },
+    {
+      "id": "usr-f9f80009-f583-4997-9b6d-09808f0ffd82",
+      "name": "Public Tester",
+      "email": "public_test_1792179234650@example.com",
+      "phoneNumber": "",
+      "password": "password123",
+      "token": "mock-jwt-4e9d9476-ffc2-419d-ab70-9f0d17c66cf0",
+      "xp": 100,
+      "level": 1,
+      "streak": 1,
+      "lastLogin": "2026-10-16T19:33:54.651Z"
+    },
+    {
+      "id": "usr-a829d8ca-69be-4e67-a4ba-aca3aa52b716",
+      "name": "Verified User",
+      "email": "user_1792179282405@example.com",
+      "phoneNumber": "",
+      "password": "password123",
+      "token": "mock-jwt-64c8f6d5-2638-4ab6-aede-877a7a1f7a60",
+      "xp": 100,
+      "level": 1,
+      "streak": 1,
+      "lastLogin": "2026-10-16T19:34:42.407Z"
+    }
+  ],
+  "documents": []
+}

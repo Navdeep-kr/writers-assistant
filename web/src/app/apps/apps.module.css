@@ -1,0 +1,137 @@
+.appsLayout {
+  min-height: calc(100vh - 64px);
+  padding: 40px;
+  max-width: 1200px;
+  margin: 0 auto;
+  color: var(--text-primary);
+  font-family: 'Inter', sans-serif;
+  transition: all 0.25s ease;
+}
+
+.hero {
+  text-align: center;
+  margin-top: 25px;
+  margin-bottom: 60px;
+  max-width: 800px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.hero h1 {
+  font-size: 3rem;
+  font-weight: 800;
+  margin-bottom: 24px;
+  background: linear-gradient(135deg, var(--text-primary) 0%, var(--success) 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  letter-spacing: -0.02em;
+}
+
+.hero p {
+  font-size: 1.25rem;
+  color: var(--text-secondary);
+  line-height: 1.6;
+}
+
+.appsGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(360px, 1fr));
+  gap: 32px;
+  margin-top: 40px;
+}
+
+.appCard {
+  background: var(--bg-card);
+  backdrop-filter: blur(var(--glass-blur));
+  border: 1px solid var(--glass-border-strong);
+  border-radius: 24px;
+  padding: 40px;
+  text-align: center;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  overflow: hidden;
+  box-shadow: var(--shadow-sm);
+}
+
+.appCard:hover {
+  transform: translateY(-10px);
+  border-color: var(--success);
+  background: var(--bg-elevated);
+  box-shadow: var(--shadow-lg);
+}
+
+.iconWrapper {
+  font-size: 3.5rem;
+  margin-bottom: 28px;
+  width: 100px;
+  height: 100px;
+  background: var(--glass-bg);
+  border: 1px solid var(--glass-border);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.appCard h3 {
+  font-size: 1.75rem;
+  font-weight: 800;
+  margin-bottom: 16px;
+  color: var(--text-primary);
+}
+
+.appCard p {
+  color: var(--text-secondary);
+  font-size: 1.05rem;
+  line-height: 1.6;
+  margin-bottom: 32px;
+  flex: 1;
+}
+
+.downloadBtn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 14px 28px;
+  background: rgba(16, 185, 129, 0.15);
+  border: 1px solid rgba(16, 185, 129, 0.4);
+  border-radius: 12px;
+  color: var(--success);
+  font-size: 1rem;
+  font-weight: 700;
+  text-decoration: none;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  margin-top: auto;
+}
+
+.downloadBtn:hover {
+  background: rgba(16, 185, 129, 0.25);
+  border-color: var(--success);
+  transform: translateY(-2px);
+  box-shadow: 0 10px 20px rgba(16, 185, 129, 0.2);
+}
+
+.platforms {
+  margin-top: 80px;
+  text-align: center;
+}
+
+.platforms h2 {
+  font-size: 2rem;
+  font-weight: 800;
+  margin-bottom: 16px;
+  color: var(--text-primary);
+}
+
+.platforms p {
+  color: var(--text-secondary);
+  font-size: 1.1rem;
+  max-width: 600px;
+  margin: 0 auto;
+}

@@ -1,0 +1,117 @@
+.card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  padding: 1.5rem;
+  overflow: hidden;
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  background: var(--glass-bg);
+  border: 1px solid var(--glass-border);
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-sm);
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  background: var(--glass-bg-hover);
+  border-color: var(--glass-border-strong);
+  box-shadow: var(--shadow-lg);
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 1.25rem;
+  z-index: 1;
+}
+
+.iconContainer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border-radius: var(--radius-sm);
+  background: rgba(255, 255, 255, 0.05);
+  font-size: 1.2rem;
+}
+
+.titleGroup {
+  display: flex;
+  flex-direction: column;
+}
+
+.title {
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: var(--text-secondary);
+  letter-spacing: 0.02em;
+}
+
+.subtitle {
+  font-size: 0.75rem;
+  color: var(--text-muted);
+}
+
+.content {
+  z-index: 1;
+}
+
+.valueGroup {
+  display: flex;
+  align-items: baseline;
+  gap: 0.75rem;
+  margin-bottom: 1rem;
+}
+
+.value {
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin: 0;
+}
+
+.trend {
+  font-size: 0.85rem;
+  font-weight: 600;
+}
+
+.positive { color: var(--success); }
+.negative { color: var(--error); }
+
+.progressContainer {
+  width: 100%;
+  height: 6px;
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.progressBar {
+  height: 100%;
+  border-radius: 10px;
+  transition: width 1s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* Colors */
+.cyan { background: var(--accent-cyan); color: var(--accent-cyan); }
+.blue { background: var(--accent-blue); color: var(--accent-blue); }
+.indigo { background: var(--accent-indigo); color: var(--accent-indigo); }
+.violet { background: var(--accent-violet); color: var(--accent-violet); }
+.success { background: var(--success); color: var(--success); }
+.warning { background: var(--warning); color: var(--warning); }
+.error { background: var(--error); color: var(--error); }
+
+.glowEffect {
+  position: absolute;
+  top: -20%;
+  right: -20%;
+  width: 150px;
+  height: 150px;
+  filter: blur(40px);
+  opacity: 0.15;
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 0;
+}

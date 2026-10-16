@@ -1,0 +1,347 @@
+.sidebar {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  background-color: var(--bg-card);
+  min-height: 100%;
+  transition: all 0.25s ease;
+}
+
+.scoreSection {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+  padding: 24px;
+  background: var(--bg-card);
+  border-bottom: 1px solid var(--glass-border);
+}
+
+.speedometerWrapper {
+  position: relative;
+  width: 120px;
+  height: 120px;
+}
+
+.glow {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 80%;
+  height: 80%;
+  background: var(--accent-blue);
+  filter: blur(40px);
+  z-index: -1;
+  transition: opacity 1s ease;
+}
+
+.circularChart {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+.circleBg {
+  fill: none;
+  stroke: var(--glass-border);
+  stroke-width: 2.8;
+}
+
+.circle {
+  fill: none;
+  stroke: var(--accent-blue);
+  stroke-width: 2.8;
+  stroke-linecap: round;
+}
+
+.percentage {
+  fill: var(--text-primary);
+  font-family: var(--font-main);
+  font-size: 8px;
+  font-weight: 800;
+  text-anchor: middle;
+}
+
+.scoreLabel {
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--text-muted);
+}
+
+.scoreSublabel {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--text-primary);
+}
+
+.coachingBtn {
+  background: rgba(99, 102, 241, 0.1);
+  border: 1px solid rgba(99, 102, 241, 0.2);
+  color: var(--accent-indigo);
+  padding: 6px 16px;
+  border-radius: 100px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  transition: all 0.2s ease;
+  cursor: pointer;
+}
+
+.coachingBtn:hover {
+  background: rgba(99, 102, 241, 0.2);
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(99, 102, 241, 0.2);
+}
+
+/* New 3-Column Grid Container */
+.gridContainer {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+  background: var(--bg-elevated);
+  border: 1px solid var(--glass-border);
+  border-radius: 12px;
+  padding: 16px;
+}
+
+.gridMetric {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+  text-align: center;
+}
+
+.metricValue {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--text-primary);
+}
+
+.miniBar {
+  width: 100%;
+  height: 3px;
+  background: var(--glass-border);
+  border-radius: 3px;
+  overflow: hidden;
+}
+
+.miniFill {
+  height: 100%;
+  transition: width 1s ease-out;
+}
+
+/* About Section Styling */
+.aboutSection {
+  background: var(--glass-bg);
+  border: 1px solid var(--glass-border);
+  border-radius: 16px;
+  padding: 20px;
+  margin-top: 8px;
+}
+
+.aboutHeading {
+  font-size: 0.9rem;
+  font-weight: 700;
+  color: var(--accent-indigo);
+  margin-bottom: 12px;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.aboutText {
+  font-size: 0.85rem;
+  color: var(--text-secondary);
+  line-height: 1.6;
+  margin-bottom: 16px;
+  font-weight: 400;
+}
+
+.featureList {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.featureItem {
+  font-size: 0.75rem;
+  padding: 4px 10px;
+  background: var(--glass-bg);
+  border: 1px solid var(--glass-border);
+  border-radius: 6px;
+  color: var(--text-primary);
+}
+
+/* Tone Meter Expansion */
+.toneMeter {
+  padding: 16px;
+  background: var(--bg-elevated);
+  border: 1px solid var(--glass-border);
+  border-radius: 12px;
+  box-shadow: var(--shadow-sm);
+}
+
+.headerRow {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 12px;
+}
+
+.toneLabel {
+  font-size: 0.7rem;
+  font-weight: 600;
+  color: var(--text-secondary);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.plagiarismBadge {
+  background: rgba(239, 68, 68, 0.1);
+  color: var(--error);
+  border: 1px solid rgba(239, 68, 68, 0.2);
+  padding: 2px 8px;
+  border-radius: 99px;
+  font-size: 0.6rem;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+.tonePills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.toneItem {
+  background: var(--glass-bg);
+  border: 1px solid var(--glass-border-strong);
+  padding: 6px 12px;
+  border-radius: 100px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.8rem;
+  transition: all 0.2s ease;
+}
+
+.toneItem:hover {
+  background: var(--glass-bg-hover);
+  border-color: var(--accent-cyan);
+}
+
+.toneName {
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+.toneScore {
+  color: var(--accent-indigo);
+  font-weight: 600;
+}
+
+/* Reuse Suggestion List Styles from Previous */
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 8px;
+  padding: 0 4px;
+}
+
+.header h3 {
+  font-size: 0.85rem;
+  font-weight: 500;
+  letter-spacing: 0.02em;
+  color: var(--text-primary);
+}
+
+.count {
+  font-size: 0.65rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--text-muted);
+}
+
+.noSuggestions {
+  font-size: 0.8125rem;
+  color: var(--text-secondary);
+  text-align: center;
+  padding: 40px 0;
+  font-style: italic;
+}
+
+.suggestionsList {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.suggestionCard {
+  background: var(--bg-card);
+  border: 1px solid var(--glass-border-strong);
+  border-radius: 16px;
+  padding: 20px;
+  box-shadow: var(--shadow-sm);
+  position: relative;
+  overflow: hidden;
+}
+
+.typeError {
+  font-size: 0.65rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--error);
+  margin-bottom: 12px;
+}
+
+.message {
+  font-size: 0.9rem;
+  color: var(--text-primary);
+  margin-bottom: 20px;
+  line-height: 1.5;
+  font-weight: 400;
+}
+
+.actions {
+  display: flex;
+  gap: 10px;
+}
+
+.accept {
+  flex: 1;
+  background: rgba(34, 211, 238, 0.15);
+  color: var(--text-primary);
+  padding: 8px;
+  border-radius: 99px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  border: 1px solid rgba(34, 211, 238, 0.3);
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+  cursor: pointer;
+}
+
+.accept:hover {
+  background: rgba(34, 211, 238, 0.25);
+  border-color: var(--accent-cyan);
+  transform: scale(1.02);
+}
+
+.dismiss {
+  flex: 1;
+  background: transparent;
+  color: var(--text-muted);
+  padding: 8px;
+  border-radius: 99px;
+  font-size: 0.75rem;
+  font-weight: 500;
+  cursor: pointer;
+}
+
+.dismiss:hover {
+  color: var(--text-secondary);
+}

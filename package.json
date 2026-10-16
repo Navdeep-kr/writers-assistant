@@ -1,0 +1,15 @@
+{
+  "name": "writing-assistant-suite",
+  "version": "1.0.0",
+  "scripts": {
+    "dev": "concurrently \"cd web && npm run dev\" \"cd backend && npm run dev\" \"cd extension && npm run dev\" \"cd mobile && npm run web\"",
+    "install:all": "npm install && npm install --prefix web && npm install --prefix backend && npm install --prefix extension && npm install --prefix mobile",
+    "web": "cd web && npm run dev",
+    "backend": "cd backend && npm run dev",
+    "extension": "cd extension && npm run dev",
+    "mobile": "cd mobile && npm run web"
+  },
+  "devDependencies": {
+    "concurrently": "^8.2.1"
+  }
+}

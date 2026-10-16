@@ -1,0 +1,32 @@
+.appLayout {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  background-color: var(--bg-obsidian);
+}
+
+.focusActive {
+  background: var(--bg-obsidian);
+}
+
+.main {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  margin-top: 60px; /* Matches Navbar height */
+  background: var(--bg-obsidian);
+  position: relative;
+  min-height: calc(100vh - 60px);
+  width: 100%;
+}
+
+.studioMain {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  background: var(--bg-obsidian);
+  position: relative;
+  height: 100vh;
+  width: 100%;
+  overflow: hidden;
+}

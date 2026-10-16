@@ -1,0 +1,108 @@
+.panel {
+  padding: 24px 0;
+  background: transparent;
+  margin-top: 16px;
+  position: relative;
+}
+
+.panel h4 {
+  font-size: 0.85rem;
+  font-weight: 500;
+  letter-spacing: 0.02em;
+  color: var(--text-primary);
+  margin-bottom: 8px;
+  padding: 0 4px;
+}
+
+.hint {
+  font-size: 0.75rem;
+  color: var(--text-muted);
+  margin-bottom: 20px;
+  padding: 0 4px;
+}
+
+.options {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 24px;
+}
+
+.options button {
+  flex: 1;
+  font-size: 0.75rem;
+  padding: 10px;
+  border-radius: 99px; /* Pill */
+  background: var(--bg-elevated);
+  border: 1px solid var(--glass-border);
+  color: var(--text-secondary);
+  font-weight: 500;
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  box-shadow: var(--shadow-sm);
+}
+
+.options button:hover:not(:disabled) {
+  background: var(--glass-bg-hover);
+  border-color: var(--glass-border-strong);
+  color: var(--text-primary);
+  transform: translateY(-1px);
+}
+
+.options button:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+  box-shadow: none;
+}
+
+.loader {
+  font-size: 0.75rem;
+  color: var(--accent-blue);
+  text-align: center;
+  margin-bottom: 16px;
+  animation: pulse-glow 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+@keyframes pulse-glow {
+  0%, 100% { opacity: 0.5; text-shadow: 0 0 0 transparent; }
+  50% { opacity: 1; text-shadow: 0 0 12px var(--accent-blue-glow); }
+}
+
+.results {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.resultCard {
+  background: var(--bg-elevated);
+  border-radius: 16px;
+  padding: 20px;
+  border: 1px solid var(--glass-border);
+  border-left: 2px solid var(--accent-purple);
+  box-shadow: var(--shadow-sm);
+}
+
+.resultCard p {
+  font-size: 0.95rem;
+  margin-bottom: 16px;
+  line-height: 1.6;
+  color: var(--text-primary);
+  font-weight: 400;
+}
+
+.applyBtn {
+  font-size: 0.7rem;
+  font-weight: 600;
+  color: var(--accent-purple);
+  text-transform: uppercase;
+  background: rgba(147, 51, 234, 0.1);
+  padding: 6px 14px;
+  border-radius: 99px;
+  border: 1px solid rgba(147, 51, 234, 0.2);
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.applyBtn:hover {
+  background: var(--accent-purple);
+  color: #fff;
+}

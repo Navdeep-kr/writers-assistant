@@ -1,0 +1,94 @@
+.container {
+  line-height: 2;
+  font-size: 1.15rem;
+  color: var(--text-primary);
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0 4px;
+}
+
+.tokenWrapper {
+  position: relative;
+  display: inline-block;
+}
+
+.token {
+  padding: 2px 4px;
+  border-radius: 6px;
+  cursor: help;
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+  position: relative;
+  border-bottom: 2px solid transparent;
+}
+
+.token.synonym {
+  background: rgba(34, 211, 238, 0.1);
+  color: var(--accent-cyan);
+  border-color: var(--accent-cyan);
+}
+
+.token.structural {
+  background: rgba(139, 92, 246, 0.1);
+  color: var(--accent-violet);
+  border-color: var(--accent-violet);
+}
+
+.token:hover {
+  background: rgba(255, 255, 255, 0.15);
+  transform: translateY(-1px);
+}
+
+.tooltip {
+  position: absolute;
+  bottom: 110%;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 280px;
+  min-height: 80px;
+  padding: 16px;
+  z-index: 1000;
+  pointer-events: none;
+  font-size: 0.95rem;
+  box-shadow: var(--shadow-lg);
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  text-align: left;
+}
+
+.tooltipHeader {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.label {
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  font-weight: 600;
+}
+
+.original {
+  font-weight: 700;
+  color: var(--text-secondary);
+  text-decoration: line-through;
+  opacity: 0.8;
+}
+
+.reason {
+  color: var(--text-primary);
+  line-height: 1.4;
+  font-weight: 500;
+}
+
+.typeTag {
+  align-self: flex-start;
+  padding: 2px 8px;
+  border-radius: 4px;
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  background: var(--bg-elevated);
+  border: 1px solid var(--glass-border);
+  font-weight: 700;
+}
