@@ -1886,15 +1886,15 @@ Growth Marketing Lead @ Loom (2018 - 2021)
                 designerTemplate === 'silicon' ? (
                   /* Silicon Valley Split (Dual Column) */
                   <div className={`${styles.tplSiliconSplit} fade-in`}>
-                    <aside className={styles.siliconSidebar}>
+                    <aside className={`${styles.siliconSidebar} print-keep`}>
                       <div className={styles.avatarInitials}>
                         {parsedInitials}
                       </div>
                       <div>
-                        <h3 style={{ margin: 0, fontSize: '1.3rem', fontWeight: 800, color: 'var(--text-primary)' }}>
+                        <h3 className={`${styles.candidateName} print-header`} style={{ margin: 0, fontSize: '1.4rem', fontWeight: 800, color: 'var(--text-primary)' }}>
                           {parsedCandidateName}
                         </h3>
-                        <div style={{ fontSize: '0.88rem', color: 'var(--accent-cyan)', fontWeight: 600, marginTop: '2px' }}>
+                        <div className={styles.targetRole} style={{ fontSize: '0.95rem', color: 'var(--accent-cyan)', fontWeight: 600, marginTop: '3px' }}>
                           {formData.role || 'Senior Professional'}
                         </div>
                       </div>
@@ -1931,7 +1931,7 @@ Growth Marketing Lead @ Loom (2018 - 2021)
                       )}
                     </aside>
 
-                    <main className={styles.siliconMain}>
+                    <main className={`${styles.siliconMain} print-keep`}>
                       <div className={styles.summaryCallout}>
                         <strong>Executive Trajectory:</strong> Strategic and impact-driven {formData.role || 'leader'} specializing in scalable systems, engineering excellence, and user-centric innovation.
                       </div>
@@ -1966,8 +1966,8 @@ Growth Marketing Lead @ Loom (2018 - 2021)
                 ) : (
                   /* Other Designer Templates (Modern Tech, Forbes Executive, Creative Studio, Nordic Minimal) */
                   <div className={`${styles.designerResumeSheet} ${getTemplateClass()} fade-in`}>
-                    {/* Resume Header */}
-                    <header className={styles.resumeHeader}>
+                    {/* Resume Header - Starting Point */}
+                    <header className={`${styles.resumeHeader} print-header`}>
                       <h2 className={styles.candidateName}>{parsedCandidateName}</h2>
                       <div className={styles.targetRole}>{formData.role || 'Senior Professional'}</div>
                       <div className={styles.contactBadges}>
@@ -2018,6 +2018,18 @@ Growth Marketing Lead @ Loom (2018 - 2021)
                   lineHeight: '1.6',
                   color: 'var(--text-primary)'
                 }}>
+                  {/* Top Candidate Header for ATS Markdown Print */}
+                  <header className={`${styles.resumeHeader} print-header`} style={{ marginBottom: '18px', borderBottom: '2px solid rgba(255,255,255,0.1)', paddingBottom: '12px' }}>
+                    <h2 className={styles.candidateName} style={{ fontSize: '2rem', fontWeight: 800, color: 'var(--text-primary)', margin: '0 0 4px 0' }}>{parsedCandidateName}</h2>
+                    <div className={styles.targetRole} style={{ fontSize: '1.05rem', fontWeight: 600, color: 'var(--accent-cyan)', margin: '0 0 6px 0' }}>{formData.role || 'Senior Professional'}</div>
+                    <div className={styles.contactBadges}>
+                      {parsedContactItems.map((c, i) => (
+                        <span key={i} className={styles.contactBadgeItem}>
+                          <span>•</span> {c}
+                        </span>
+                      ))}
+                    </div>
+                  </header>
                   {output || 'AI-optimized resume content will appear here...'}
                 </div>
               )}

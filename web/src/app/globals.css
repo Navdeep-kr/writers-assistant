@@ -368,13 +368,17 @@ a {
     print-color-adjust: exact !important;
   }
 
-  /* 1. Eliminate Global Page Chrome */
+  /* 1. Eliminate Global Website App Chrome (Navbar, NavSidebar, App Footer) */
   nav,
-  header:not(.print-header),
-  footer,
-  aside:not(.print-keep),
-  .navbar,
-  .footer,
+  header.appHeader,
+  header[class*="navbar"],
+  header[class*="Navbar"],
+  aside[class*="sidebar"]:not([class*="siliconSidebar"]),
+  aside[class*="Sidebar"]:not([class*="siliconSidebar"]),
+  aside[class*="navSidebar"],
+  aside[class*="NavSidebar"],
+  footer[class*="footer"]:not([class*="letterhead"]),
+  footer[class*="Footer"]:not([class*="letterhead"]),
   .command-palette,
   .modal-overlay,
   .no-print,
@@ -406,7 +410,7 @@ a {
     display: none !important;
   }
 
-  /* 3. Expand the active workspace and output container to 100% */
+  /* 3. Expand the active workspace and output container to 100% starting from the top */
   div[class*="activeWorkspaceSection"],
   div[class*="toolBodyContainer"],
   div[class*="container"],
@@ -435,8 +439,40 @@ a {
   div[class*="sampleRow"],
   div[class*="viewToggleGroup"],
   div[class*="templateGroup"],
-  div[class*="footer"] {
+  div[class*="footer"]:not([class*="letterheadFooter"]) {
     display: none !important;
+  }
+
+  /* 4. CRITICAL: Guarantee Candidate Name, Header, and Upper Details are 100% Visible */
+  .print-header,
+  .print-keep,
+  [class*="resumeHeader"],
+  [class*="letterheadHeader"],
+  [class*="siliconSidebar"],
+  [class*="siliconMain"],
+  [class*="candidateName"],
+  [class*="targetRole"],
+  [class*="contactBadges"],
+  [class*="contactBadgeItem"],
+  [class*="avatarInitials"] {
+    display: block !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+  }
+
+  [class*="siliconSidebar"] {
+    display: flex !important;
+    flex-direction: column !important;
+  }
+
+  [class*="contactBadges"] {
+    display: flex !important;
+    flex-wrap: wrap !important;
+  }
+
+  [class*="tplSiliconSplit"] {
+    display: flex !important;
+    flex-direction: row !important;
   }
 
   /* Prevent page breaks inside important headers and sections */

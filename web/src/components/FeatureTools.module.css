@@ -1626,13 +1626,13 @@
 }
 
 @media print {
+  .toolContainer > .header,
   .inputArea,
   .divider,
   .resumeToolbar,
   .sampleBar,
   .sampleRow,
   .footer,
-  .header,
   .actionBtn,
   .copyBtn,
   .templateGroup,
@@ -1662,8 +1662,73 @@
     background: transparent !important;
   }
 
-  .designerResumeSheet,
-  .tplSiliconSplit,
+  /* Force full visibility for the resume header, candidate name, role, and contact items */
+  .resumeHeader,
+  .candidateName,
+  .targetRole,
+  .contactBadges,
+  .contactBadgeItem,
+  .avatarInitials,
+  .siliconSidebar,
+  .siliconMain {
+    display: block !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+  }
+
+  .tplSiliconSplit {
+    display: flex !important;
+    flex-direction: row !important;
+    width: 100% !important;
+    border: 1px solid #cbd5e1 !important;
+    border-radius: 0 !important;
+    box-shadow: none !important;
+    background: #ffffff !important;
+  }
+
+  .siliconSidebar {
+    display: flex !important;
+    flex-direction: column !important;
+    width: 32% !important;
+    min-width: 32% !important;
+    background: #f8fafc !important;
+    border-right: 1.5px solid #cbd5e1 !important;
+    padding: 20px 16px !important;
+    gap: 16px !important;
+  }
+
+  .siliconMain {
+    display: flex !important;
+    flex-direction: column !important;
+    width: 68% !important;
+    padding: 20px 22px !important;
+    gap: 18px !important;
+  }
+
+  .avatarInitials {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+  }
+
+  .contactBadges,
+  .skillsPillList {
+    display: flex !important;
+    flex-wrap: wrap !important;
+  }
+
+  .designerResumeSheet {
+    display: block !important;
+    width: 100% !important;
+    border: none !important;
+    box-shadow: none !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    background: #ffffff !important;
+    color: #0f172a !important;
+    overflow: visible !important;
+  }
+
   .letterheadModern,
   .letterheadExecutive,
   .manuscriptPaper {
