@@ -1620,4 +1620,60 @@
   font-family: monospace;
 }
 
+/* Printable Document Wrapper */
+.printableDocumentWrapper {
+  width: 100%;
+}
+
+@media print {
+  .inputArea,
+  .divider,
+  .resumeToolbar,
+  .sampleBar,
+  .sampleRow,
+  .footer,
+  .header,
+  .actionBtn,
+  .copyBtn,
+  .templateGroup,
+  .viewToggleGroup,
+  .exportDropdownWrapper,
+  .academicToolbar,
+  .formatPillGroup {
+    display: none !important;
+  }
+
+  .container,
+  .toolContainer,
+  .workspace,
+  .outputArea,
+  .resultBox,
+  .printableDocumentWrapper {
+    display: block !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    height: auto !important;
+    max-height: none !important;
+    overflow: visible !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    border: none !important;
+    box-shadow: none !important;
+    background: transparent !important;
+  }
+
+  .designerResumeSheet,
+  .tplSiliconSplit,
+  .letterheadModern,
+  .letterheadExecutive,
+  .manuscriptPaper {
+    border: none !important;
+    box-shadow: none !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    background: #ffffff !important;
+    color: #0f172a !important;
+  }
+}
+
 

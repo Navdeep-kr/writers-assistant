@@ -2,6 +2,7 @@
 
 import React, { useState, useRef } from 'react';
 import styles from './FeatureTools.module.css';
+import { printElement, printFormattedDocument } from '@/lib/printUtils';
 
 interface FileImportBarProps {
   onFileLoaded: (text: string, fileName: string) => void;
@@ -155,13 +156,17 @@ interface UniversalExportDropdownProps {
   defaultTitle?: string;
   onCopy?: () => void;
   copied?: boolean;
+  printTargetId?: string;
+  onCustomPrint?: () => void;
 }
 
 export const UniversalExportDropdown: React.FC<UniversalExportDropdownProps> = ({
   content,
   defaultTitle = 'AI_Writing_Document',
   onCopy,
-  copied = false
+  copied = false,
+  printTargetId,
+  onCustomPrint
 }) => {
   const [isOpen, setIsOpen] = useState(false);
   const [internalCopied, setInternalCopied] = useState(false);
@@ -219,32 +224,15 @@ export const UniversalExportDropdown: React.FC<UniversalExportDropdownProps> = (
 
   const handlePrint = () => {
     setIsOpen(false);
-    const printWindow = window.open('', '_blank');
-    if (!printWindow) {
-      window.print();
+    if (onCustomPrint) {
+      onCustomPrint();
       return;
     }
-    printWindow.document.write(`
-      <!DOCTYPE html>
-      <html>
-        <head>
-          <title>${cleanTitle}</title>
-          <style>
-            body { font-family: 'Georgia', serif; padding: 40px; line-height: 1.8; color: #111; max-width: 800px; margin: 0 auto; }
-            h1, h2 { border-bottom: 1px solid #ccc; padding-bottom: 8px; }
-            p { margin-bottom: 16px; }
-          </style>
-        </head>
-        <body>
-          <h2>${cleanTitle}</h2>
-          <div>${content.replace(/\n\n+/g, '</p><p>').replace(/\n/g, '<br/>')}</div>
-          <script>
-            window.onload = function() { window.print(); window.close(); }
-          </script>
-        </body>
-      </html>
-    `);
-    printWindow.document.close();
+    if (printTargetId) {
+      printElement(printTargetId, cleanTitle.replace(/_/g, ' '));
+      return;
+    }
+    printFormattedDocument(cleanTitle.replace(/_/g, ' '), content);
   };
 
   const handleCopyClipboard = () => {

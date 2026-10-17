@@ -336,3 +336,113 @@ a {
 .zen-mode {
   transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1);
 }
+
+/* ==========================================================================
+   GLOBAL PRINT MEDIA ISOLATION (ZERO CLUTTER)
+   Ensures that only the main document / resume / subject is printed.
+   All headers, footers, sidebars, dashboard navigation, buttons, and form inputs
+   are completely eliminated from physical paper / PDF export.
+   ========================================================================== */
+@media print {
+  @page {
+    size: A4 portrait;
+    margin: 12mm 15mm;
+  }
+
+  /* Force clean light paper styling */
+  :root,
+  [data-theme],
+  body {
+    --bg-obsidian: #ffffff !important;
+    --bg-card: #ffffff !important;
+    --bg-elevated: #ffffff !important;
+    --text-primary: #0f172a !important;
+    --text-secondary: #334155 !important;
+    --text-muted: #64748b !important;
+    --glass-bg: #ffffff !important;
+    --glass-border: #e2e8f0 !important;
+    --glass-border-strong: #cbd5e1 !important;
+    background: #ffffff !important;
+    color: #0f172a !important;
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+  }
+
+  /* 1. Eliminate Global Page Chrome */
+  nav,
+  header:not(.print-header),
+  footer,
+  aside:not(.print-keep),
+  .navbar,
+  .footer,
+  .command-palette,
+  .modal-overlay,
+  .no-print,
+  [data-no-print="true"],
+  button,
+  input,
+  textarea,
+  select {
+    display: none !important;
+  }
+
+  /* 2. Eliminate Dashboard Chrome */
+  main {
+    padding: 0 !important;
+    margin: 0 !important;
+    max-width: 100% !important;
+    width: 100% !important;
+  }
+
+  /* Hide dashboard hero, quick action pills, search filter bar, tool grid, recent docs */
+  section[class*="hero"],
+  section[class*="quickActions"],
+  section[class*="filterSection"],
+  div[class*="categoryTabs"],
+  section[class*="toolsGrid"],
+  section[class*="recentSection"],
+  div[class*="workspaceTopBar"],
+  div[class*="workspaceControls"] {
+    display: none !important;
+  }
+
+  /* 3. Expand the active workspace and output container to 100% */
+  div[class*="activeWorkspaceSection"],
+  div[class*="toolBodyContainer"],
+  div[class*="container"],
+  div[class*="toolContainer"],
+  div[class*="outputArea"],
+  div[class*="resultBox"],
+  div[class*="printableDocumentWrapper"] {
+    display: block !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    border: none !important;
+    box-shadow: none !important;
+    background: #ffffff !important;
+    overflow: visible !important;
+    max-height: none !important;
+  }
+
+  /* Hide left input columns inside tools when printing whole page */
+  div[class*="inputArea"],
+  div[class*="divider"],
+  div[class*="resumeToolbar"],
+  div[class*="academicToolbar"],
+  div[class*="sampleBar"],
+  div[class*="sampleRow"],
+  div[class*="viewToggleGroup"],
+  div[class*="templateGroup"],
+  div[class*="footer"] {
+    display: none !important;
+  }
+
+  /* Prevent page breaks inside important headers and sections */
+  h1, h2, h3, header, section, article {
+    page-break-inside: avoid;
+    break-inside: avoid;
+  }
+}
+

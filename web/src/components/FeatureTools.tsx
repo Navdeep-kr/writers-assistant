@@ -6,6 +6,7 @@ import GlassButton from './ui/GlassButton';
 import TokenizedOutput from './TokenizedOutput';
 import { motion } from 'framer-motion';
 import { FileImportBar, UniversalExportDropdown } from './FileTransferComponents';
+import { printElement, printFormattedDocument } from '@/lib/printUtils';
 
 interface ToolSample {
   label: string;
@@ -1066,50 +1067,52 @@ export const CoverLetterTool: React.FC<{ ai: any }> = ({ ai }) => {
           </div>
 
           <div className={styles.resultBox} style={{ maxHeight: '680px', overflowY: 'auto' }}>
-            {output ? (
-              viewMode === 'designer' ? (
-                <div className={`${letterTemplate === 'executive' ? styles.letterheadExecutive : styles.letterheadModern} fade-in`}>
-                  <header className={styles.letterheadHeader}>
-                    <div>
-                      <h2 style={{ fontSize: '1.4rem', fontWeight: 800, margin: 0, color: 'var(--text-primary)' }}>
-                        Candidate Application
-                      </h2>
-                      <div style={{ color: 'var(--accent-blue)', fontWeight: 600, fontSize: '0.9rem', marginTop: '2px' }}>
-                        Target Role: {formData.jobTitle || 'Senior Professional'}
+            <div id="cover-letter-printable-document" className={styles.printableDocumentWrapper}>
+              {output ? (
+                viewMode === 'designer' ? (
+                  <div className={`${letterTemplate === 'executive' ? styles.letterheadExecutive : styles.letterheadModern} fade-in`}>
+                    <header className={styles.letterheadHeader}>
+                      <div>
+                        <h2 style={{ fontSize: '1.4rem', fontWeight: 800, margin: 0, color: 'var(--text-primary)' }}>
+                          Candidate Application
+                        </h2>
+                        <div style={{ color: 'var(--accent-blue)', fontWeight: 600, fontSize: '0.9rem', marginTop: '2px' }}>
+                          Target Role: {formData.jobTitle || 'Senior Professional'}
+                        </div>
+                      </div>
+                      <div style={{ textAlign: 'right', fontSize: '0.85rem', color: 'var(--text-muted)' }}>
+                        <div>Date: {new Date().toLocaleDateString(undefined, { year: 'numeric', month: 'long', day: 'numeric' })}</div>
+                        <div>Recipient: Hiring Committee, {formData.company || 'Enterprise'}</div>
+                      </div>
+                    </header>
+
+                    {formData.pitch && (
+                      <div className={styles.summaryCallout} style={{ marginBottom: '20px' }}>
+                        <strong>Core Candidate Angle:</strong> {formData.pitch}
+                      </div>
+                    )}
+
+                    <div style={{ whiteSpace: 'pre-wrap', lineHeight: '1.8' }}>
+                      {output}
+                    </div>
+
+                    <div className={styles.signatureBox}>
+                      <div style={{ fontSize: '0.85rem', color: 'var(--text-muted)' }}>Sincerely,</div>
+                      <div className={styles.cursiveSignature}>Candidate Applicant</div>
+                      <div style={{ fontSize: '0.8rem', color: 'var(--text-secondary)', marginTop: '2px' }}>
+                        {formData.jobTitle || 'Senior Applicant'}
                       </div>
                     </div>
-                    <div style={{ textAlign: 'right', fontSize: '0.85rem', color: 'var(--text-muted)' }}>
-                      <div>Date: October 16, 2026</div>
-                      <div>Recipient: Hiring Committee, {formData.company || 'Enterprise'}</div>
-                    </div>
-                  </header>
-
-                  {formData.pitch && (
-                    <div className={styles.summaryCallout} style={{ marginBottom: '20px' }}>
-                      <strong>Core Candidate Angle:</strong> {formData.pitch}
-                    </div>
-                  )}
-
-                  <div style={{ whiteSpace: 'pre-wrap', lineHeight: '1.8' }}>
+                  </div>
+                ) : (
+                  <div className="fade-in" style={{ whiteSpace: 'pre-wrap', padding: '16px', background: 'var(--glass-bg)', borderRadius: '12px' }}>
                     {output}
                   </div>
-
-                  <div className={styles.signatureBox}>
-                    <div style={{ fontSize: '0.85rem', color: 'var(--text-muted)' }}>Sincerely,</div>
-                    <div className={styles.cursiveSignature}>Candidate Applicant</div>
-                    <div style={{ fontSize: '0.8rem', color: 'var(--text-secondary)', marginTop: '2px' }}>
-                      {formData.jobTitle || 'Senior Applicant'}
-                    </div>
-                  </div>
-                </div>
+                )
               ) : (
-                <div className="fade-in" style={{ whiteSpace: 'pre-wrap', padding: '16px', background: 'var(--glass-bg)', borderRadius: '12px' }}>
-                  {output}
-                </div>
-              )
-            ) : (
-              <span className={styles.placeholder}>Your tailored cover letter will appear here in designer letterhead format...</span>
-            )}
+                <span className={styles.placeholder}>Your tailored cover letter will appear here in designer letterhead format...</span>
+              )}
+            </div>
           </div>
 
           <div className={styles.footer}>
@@ -1118,6 +1121,7 @@ export const CoverLetterTool: React.FC<{ ai: any }> = ({ ai }) => {
                 <UniversalExportDropdown
                   content={output}
                   defaultTitle={`Cover_Letter_${(formData.company || 'Application').replace(/\s+/g, '_')}`}
+                  printTargetId="cover-letter-printable-document"
                   onCopy={() => {
                     navigator.clipboard.writeText(output);
                     setCopied(true);
@@ -1132,7 +1136,11 @@ export const CoverLetterTool: React.FC<{ ai: any }> = ({ ai }) => {
                 }}>
                   {copied ? '✅ Copied' : '📋 Copy Letter'}
                 </button>
-                <button className={styles.copyBtn} style={{ marginTop: 0 }} onClick={() => window.print()}>
+                <button 
+                  className={styles.copyBtn} 
+                  style={{ marginTop: 0 }} 
+                  onClick={() => printElement('cover-letter-printable-document', `Cover_Letter_${(formData.company || 'Application').replace(/\s+/g, '_')}`)}
+                >
                   🖨️ Print
                 </button>
               </div>
@@ -1873,145 +1881,147 @@ Growth Marketing Lead @ Loom (2018 - 2021)
 
           {/* Interactive Resume Viewport */}
           <div className={styles.resultBox} style={{ maxHeight: '680px', overflowY: 'auto', padding: '4px' }}>
-            {viewMode === 'designer' ? (
-              designerTemplate === 'silicon' ? (
-                /* Silicon Valley Split (Dual Column) */
-                <div className={`${styles.tplSiliconSplit} fade-in`}>
-                  <aside className={styles.siliconSidebar}>
-                    <div className={styles.avatarInitials}>
-                      {parsedInitials}
-                    </div>
-                    <div>
-                      <h3 style={{ margin: 0, fontSize: '1.3rem', fontWeight: 800, color: 'var(--text-primary)' }}>
-                        {parsedCandidateName}
-                      </h3>
-                      <div style={{ fontSize: '0.88rem', color: 'var(--accent-cyan)', fontWeight: 600, marginTop: '2px' }}>
-                        {formData.role || 'Senior Professional'}
+            <div id="resume-printable-document" className={styles.printableDocumentWrapper}>
+              {viewMode === 'designer' ? (
+                designerTemplate === 'silicon' ? (
+                  /* Silicon Valley Split (Dual Column) */
+                  <div className={`${styles.tplSiliconSplit} fade-in`}>
+                    <aside className={styles.siliconSidebar}>
+                      <div className={styles.avatarInitials}>
+                        {parsedInitials}
                       </div>
-                    </div>
-
-                    <div>
-                      <div className={styles.sidebarSectionTitle}>📍 Contact & Links</div>
-                      <div className={styles.sidebarContactList}>
-                        {parsedContactItems.map((c, i) => (
-                          <div key={i}>• {c}</div>
-                        ))}
-                      </div>
-                    </div>
-
-                    {parsedSkillsList.length > 0 && (
                       <div>
-                        <div className={styles.sidebarSectionTitle}>⚡ Core Tech Stack</div>
-                        <div className={styles.skillsPillList}>
-                          {parsedSkillsList.map((skill, sIdx) => (
-                            <span key={sIdx} className={styles.skillTag} style={{ fontSize: '0.75rem', padding: '4px 8px' }}>
-                              {skill}
-                            </span>
+                        <h3 style={{ margin: 0, fontSize: '1.3rem', fontWeight: 800, color: 'var(--text-primary)' }}>
+                          {parsedCandidateName}
+                        </h3>
+                        <div style={{ fontSize: '0.88rem', color: 'var(--accent-cyan)', fontWeight: 600, marginTop: '2px' }}>
+                          {formData.role || 'Senior Professional'}
+                        </div>
+                      </div>
+
+                      <div>
+                        <div className={styles.sidebarSectionTitle}>📍 Contact & Links</div>
+                        <div className={styles.sidebarContactList}>
+                          {parsedContactItems.map((c, i) => (
+                            <div key={i}>• {c}</div>
                           ))}
                         </div>
                       </div>
-                    )}
 
-                    {formData.education && (
+                      {parsedSkillsList.length > 0 && (
+                        <div>
+                          <div className={styles.sidebarSectionTitle}>⚡ Core Tech Stack</div>
+                          <div className={styles.skillsPillList}>
+                            {parsedSkillsList.map((skill, sIdx) => (
+                              <span key={sIdx} className={styles.skillTag} style={{ fontSize: '0.75rem', padding: '4px 8px' }}>
+                                {skill}
+                              </span>
+                            ))}
+                          </div>
+                        </div>
+                      )}
+
+                      {formData.education && (
+                        <div>
+                          <div className={styles.sidebarSectionTitle}>🎓 Education</div>
+                          <div style={{ fontSize: '0.82rem', color: 'var(--text-secondary)', lineHeight: '1.5' }}>
+                            {formData.education}
+                          </div>
+                        </div>
+                      )}
+                    </aside>
+
+                    <main className={styles.siliconMain}>
+                      <div className={styles.summaryCallout}>
+                        <strong>Executive Trajectory:</strong> Strategic and impact-driven {formData.role || 'leader'} specializing in scalable systems, engineering excellence, and user-centric innovation.
+                      </div>
+
                       <div>
-                        <div className={styles.sidebarSectionTitle}>🎓 Education</div>
-                        <div style={{ fontSize: '0.82rem', color: 'var(--text-secondary)', lineHeight: '1.5' }}>
-                          {formData.education}
+                        <h3 className={styles.resumeSectionTitle}>💼 Professional Trajectory</h3>
+                        <div className={styles.timelineTrack}>
+                          {formData.experience.split(/\n\s*\n/).filter(Boolean).map((block, idx) => {
+                            const lines = block.split('\n').map(l => l.trim()).filter(Boolean);
+                            const headerLine = lines[0] || '';
+                            const bullets = lines.slice(1);
+                            return (
+                              <div key={idx} className={styles.timelineNode}>
+                                <div className={styles.timelineDot} />
+                                <div style={{ fontWeight: 700, fontSize: '1.02rem', color: 'var(--text-primary)', marginBottom: '4px' }}>
+                                  {headerLine}
+                                </div>
+                                {bullets.length > 0 && (
+                                  <ul className={styles.expBullets}>
+                                    {bullets.map((b, bIdx) => (
+                                      <li key={bIdx}>{b.replace(/^[-•*]\s*/, '')}</li>
+                                    ))}
+                                  </ul>
+                                )}
+                              </div>
+                            );
+                          })}
                         </div>
                       </div>
-                    )}
-                  </aside>
-
-                  <main className={styles.siliconMain}>
-                    <div className={styles.summaryCallout}>
-                      <strong>Executive Trajectory:</strong> Strategic and impact-driven {formData.role || 'leader'} specializing in scalable systems, engineering excellence, and user-centric innovation.
-                    </div>
-
-                    <div>
-                      <h3 className={styles.resumeSectionTitle}>💼 Professional Trajectory</h3>
-                      <div className={styles.timelineTrack}>
-                        {formData.experience.split(/\n\s*\n/).filter(Boolean).map((block, idx) => {
-                          const lines = block.split('\n').map(l => l.trim()).filter(Boolean);
-                          const headerLine = lines[0] || '';
-                          const bullets = lines.slice(1);
-                          return (
-                            <div key={idx} className={styles.timelineNode}>
-                              <div className={styles.timelineDot} />
-                              <div style={{ fontWeight: 700, fontSize: '1.02rem', color: 'var(--text-primary)', marginBottom: '4px' }}>
-                                {headerLine}
-                              </div>
-                              {bullets.length > 0 && (
-                                <ul className={styles.expBullets}>
-                                  {bullets.map((b, bIdx) => (
-                                    <li key={bIdx}>{b.replace(/^[-•*]\s*/, '')}</li>
-                                  ))}
-                                </ul>
-                              )}
-                            </div>
-                          );
-                        })}
-                      </div>
-                    </div>
-                  </main>
-                </div>
-              ) : (
-                /* Other Designer Templates (Modern Tech, Forbes Executive, Creative Studio, Nordic Minimal) */
-                <div className={`${styles.designerResumeSheet} ${getTemplateClass()} fade-in`}>
-                  {/* Resume Header */}
-                  <header className={styles.resumeHeader}>
-                    <h2 className={styles.candidateName}>{parsedCandidateName}</h2>
-                    <div className={styles.targetRole}>{formData.role || 'Senior Professional'}</div>
-                    <div className={styles.contactBadges}>
-                      {parsedContactItems.map((c, i) => (
-                        <span key={i} className={styles.contactBadgeItem}>
-                          <span>•</span> {c}
-                        </span>
-                      ))}
-                    </div>
-                  </header>
-
-                  {/* Technical Skills Section */}
-                  {parsedSkillsList.length > 0 && (
-                    <section className={styles.resumeSection}>
-                      <h3 className={styles.resumeSectionTitle}>🛠️ Core Competencies & Skills</h3>
-                      <div className={styles.skillsPillList}>
-                        {parsedSkillsList.map((skill, sIdx) => (
-                          <span key={sIdx} className={styles.skillTag}>{skill}</span>
+                    </main>
+                  </div>
+                ) : (
+                  /* Other Designer Templates (Modern Tech, Forbes Executive, Creative Studio, Nordic Minimal) */
+                  <div className={`${styles.designerResumeSheet} ${getTemplateClass()} fade-in`}>
+                    {/* Resume Header */}
+                    <header className={styles.resumeHeader}>
+                      <h2 className={styles.candidateName}>{parsedCandidateName}</h2>
+                      <div className={styles.targetRole}>{formData.role || 'Senior Professional'}</div>
+                      <div className={styles.contactBadges}>
+                        {parsedContactItems.map((c, i) => (
+                          <span key={i} className={styles.contactBadgeItem}>
+                            <span>•</span> {c}
+                          </span>
                         ))}
                       </div>
-                    </section>
-                  )}
+                    </header>
 
-                  {/* Professional Experience Section */}
-                  <section className={styles.resumeSection}>
-                    <h3 className={styles.resumeSectionTitle}>💼 Professional Experience</h3>
-                    {renderExperienceBlocks()}
-                  </section>
+                    {/* Technical Skills Section */}
+                    {parsedSkillsList.length > 0 && (
+                      <section className={styles.resumeSection}>
+                        <h3 className={styles.resumeSectionTitle}>🛠️ Core Competencies & Skills</h3>
+                        <div className={styles.skillsPillList}>
+                          {parsedSkillsList.map((skill, sIdx) => (
+                            <span key={sIdx} className={styles.skillTag}>{skill}</span>
+                          ))}
+                        </div>
+                      </section>
+                    )}
 
-                  {/* Education Section */}
-                  {formData.education && (
+                    {/* Professional Experience Section */}
                     <section className={styles.resumeSection}>
-                      <h3 className={styles.resumeSectionTitle}>🎓 Education & Credentials</h3>
-                      <div className={styles.educationItem}>{formData.education}</div>
+                      <h3 className={styles.resumeSectionTitle}>💼 Professional Experience</h3>
+                      {renderExperienceBlocks()}
                     </section>
-                  )}
+
+                    {/* Education Section */}
+                    {formData.education && (
+                      <section className={styles.resumeSection}>
+                        <h3 className={styles.resumeSectionTitle}>🎓 Education & Credentials</h3>
+                        <div className={styles.educationItem}>{formData.education}</div>
+                      </section>
+                    )}
+                  </div>
+                )
+              ) : (
+                <div className="fade-in" style={{ 
+                  background: 'var(--glass-bg)', 
+                  padding: '24px', 
+                  borderRadius: '12px', 
+                  border: '1px solid var(--glass-border)',
+                  whiteSpace: 'pre-wrap',
+                  fontFamily: 'var(--font-mono, monospace)',
+                  fontSize: '0.9rem',
+                  lineHeight: '1.6',
+                  color: 'var(--text-primary)'
+                }}>
+                  {output || 'AI-optimized resume content will appear here...'}
                 </div>
-              )
-            ) : (
-              <div className="fade-in" style={{ 
-                background: 'var(--glass-bg)', 
-                padding: '24px', 
-                borderRadius: '12px', 
-                border: '1px solid var(--glass-border)',
-                whiteSpace: 'pre-wrap',
-                fontFamily: 'var(--font-mono, monospace)',
-                fontSize: '0.9rem',
-                lineHeight: '1.6',
-                color: 'var(--text-primary)'
-              }}>
-                {output || 'AI-optimized resume content will appear here...'}
-              </div>
-            )}
+              )}
+            </div>
           </div>
 
           {/* Action Footer */}
@@ -2020,6 +2030,7 @@ Growth Marketing Lead @ Loom (2018 - 2021)
               <UniversalExportDropdown
                 content={output}
                 defaultTitle={`${parsedCandidateName.replace(/\s+/g, '_')}_Resume`}
+                printTargetId="resume-printable-document"
                 onCopy={() => {
                   navigator.clipboard.writeText(output);
                   setCopied(true);
@@ -2051,7 +2062,7 @@ Growth Marketing Lead @ Loom (2018 - 2021)
                 type="button" 
                 className={styles.copyBtn} 
                 style={{ marginTop: 0 }}
-                onClick={() => window.print()}
+                onClick={() => printElement('resume-printable-document', `${parsedCandidateName.replace(/\s+/g, '_')}_Resume`)}
               >
                 🖨️ Print Resume
               </button>
@@ -3267,7 +3278,11 @@ Dynamic feed-in tariffs combined with localized storage arbitrage shorten capita
   };
 
   const handlePrint = () => {
-    window.print();
+    if (viewMode === 'designer') {
+      printElement('academic-printable-manuscript', paperTitle || `Academic_Manuscript_${manuscriptFormat.toUpperCase()}`);
+    } else {
+      printFormattedDocument(paperTitle || `Academic_Manuscript_${manuscriptFormat.toUpperCase()}`, content);
+    }
   };
 
   // Parse markdown for designer view
@@ -3347,6 +3362,7 @@ Dynamic feed-in tariffs combined with localized storage arbitrage shorten capita
           <UniversalExportDropdown
             content={content}
             defaultTitle={`Academic_Manuscript_${manuscriptFormat.toUpperCase()}`}
+            printTargetId="academic-printable-manuscript"
             onCopy={() => {
               navigator.clipboard.writeText(content);
               setCopied(true);
@@ -3378,7 +3394,7 @@ Dynamic feed-in tariffs combined with localized storage arbitrage shorten capita
         {/* VIEW MODE: DESIGNER MANUSCRIPT PREVIEW */}
         {viewMode === 'designer' ? (
           <div style={{ width: '100%', height: '100%', overflowY: 'auto' }}>
-            <div className={styles.manuscriptPaper}>
+            <div id="academic-printable-manuscript" className={`${styles.manuscriptPaper} ${styles.printableDocumentWrapper}`}>
               
               {/* 1. IEEE TWO-COLUMN FORMAT */}
               {manuscriptFormat === 'ieee' && (
