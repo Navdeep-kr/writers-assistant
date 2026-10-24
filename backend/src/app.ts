@@ -17,7 +17,7 @@ app.use((req, res, next) => {
 });
 
 // Main Routes
-app.get('/api/health', (req, res) => res.json({ 
+app.get(['/health', '/api/health'], (req, res) => res.json({ 
   status: 'ok', 
   service: 'Writers Assistant Backend API',
   websockets: 'active',
