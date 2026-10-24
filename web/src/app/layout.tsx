@@ -24,12 +24,12 @@ export const viewport: Viewport = {
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
   title: {
-    default: "Writing Assistant — Advanced AI Writing, Paraphrasing & Resume Studio",
-    template: "%s | Writing Assistant"
+    default: "Writers Assistant — Advanced AI Writing, Paraphrasing & Resume Studio",
+    template: "%s | Writers Assistant"
   },
   description: "The complete AI writing suite for professionals, researchers, and creators. Advanced paraphrasing, grammar check, ATS resume builder with designer templates, AI content detection, and multi-format export.",
   keywords: [
-    "AI writing assistant",
+    "AI writers assistant",
     "AI paraphrasing tool",
     "grammar checker",
     "ATS resume builder",
@@ -43,9 +43,9 @@ export const metadata: Metadata = {
     "cover letter generator",
     "academic writing tool"
   ],
-  authors: [{ name: "Writing Assistant Inc." }],
-  creator: "Writing Assistant Inc.",
-  publisher: "Writing Assistant Inc.",
+  authors: [{ name: "Writers Assistant Inc." }],
+  creator: "Writers Assistant Inc.",
+  publisher: "Writers Assistant Inc.",
   formatDetection: {
     email: false,
     address: false,
@@ -58,14 +58,14 @@ export const metadata: Metadata = {
     type: "website",
     locale: "en_US",
     url: siteUrl,
-    siteName: "Writing Assistant",
-    title: "Writing Assistant — Advanced AI Writing, Paraphrasing & Resume Studio",
+    siteName: "Writers Assistant",
+    title: "Writers Assistant — Advanced AI Writing, Paraphrasing & Resume Studio",
     description: "Write with superhuman precision. Real-time grammar verification, ATS resume creation, high-accuracy paraphrasing, and multi-format document workflows.",
   },
   twitter: {
     card: "summary_large_image",
-    title: "Writing Assistant — Advanced AI Writing Suite",
-    description: "AI-powered writing assistant for professionals, students, and creators.",
+    title: "Writers Assistant — Advanced AI Writing Suite",
+    description: "AI-powered writers assistant for professionals, students, and creators.",
     creator: "@writingassistant",
   },
   robots: {
@@ -111,7 +111,7 @@ export default function RootLayout({
                   "@type": "WebSite",
                   "@id": `${siteUrl}/#website`,
                   "url": siteUrl,
-                  "name": "Writing Assistant",
+                  "name": "Writers Assistant",
                   "description": "Advanced AI Writing, Paraphrasing, and Document Studio",
                   "potentialAction": {
                     "@type": "SearchAction",
@@ -122,7 +122,7 @@ export default function RootLayout({
                 {
                   "@type": "SoftwareApplication",
                   "@id": `${siteUrl}/#software`,
-                  "name": "Writing Assistant AI Suite",
+                  "name": "Writers Assistant AI Suite",
                   "applicationCategory": "ProductivityApplication",
                   "operatingSystem": "Web, Windows, macOS, Linux, iOS, Android",
                   "offers": {
@@ -139,7 +139,7 @@ export default function RootLayout({
                 {
                   "@type": "Organization",
                   "@id": `${siteUrl}/#organization`,
-                  "name": "Writing Assistant Inc.",
+                  "name": "Writers Assistant Inc.",
                   "url": siteUrl
                 }
               ]

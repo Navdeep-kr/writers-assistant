@@ -16,7 +16,7 @@ const APPS_DATA = [
   { 
     id: 'windows', 
     title: 'Windows App', 
-    description: 'The full Writing Assistant experience as a native desktop application. Performant, offline-ready, and system-wide.',
+    description: 'The full Writers Assistant experience as a native desktop application. Performant, offline-ready, and system-wide.',
     icon: '🪟',
     tag: 'DESKTOP',
     version: 'v1.0.8'
@@ -40,7 +40,7 @@ const APPS_DATA = [
   { 
     id: 'android', 
     title: 'Android App', 
-    description: 'Powerful writing tools for your Android phone or tablet. Includes the Writing Assistant AI keyboard.',
+    description: 'Powerful writing tools for your Android phone or tablet. Includes the Writers Assistant AI keyboard.',
     icon: '🤖',
     tag: 'MOBILE',
     version: 'v3.1.8'
@@ -65,7 +65,7 @@ function AppsHubContent() {
         transition={{ duration: 0.6 }}
       >
         <h1>Apps & Extensions</h1>
-        <p>Take Writing Assistant wherever you write. From cross-platform desktop apps to mobile keyboards and browser extensions.</p>
+        <p>Take Writers Assistant wherever you write. From cross-platform desktop apps to mobile keyboards and browser extensions.</p>
       </motion.section>
 
       <section className={styles.appsGrid}>

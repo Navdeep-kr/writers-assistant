@@ -7,7 +7,7 @@ export const metadata: Metadata = {
     canonical: '/creators',
   },
   openGraph: {
-    title: "Creator Studio — Writing Assistant",
+    title: "Creator Studio — Writers Assistant",
     description: "Amplify your audience with AI-powered video scripts, hooks, and creative storytelling.",
     url: "https://writingassistant.app/creators",
   }

@@ -1,6 +1,6 @@
-# ✒️ Premium AI Writing Assistant & Studio Suite
+# ✒️ Premium AI Writers Assistant & Studio Suite
 
-A modern, full-stack AI Writing Assistant and Document Studio featuring **intelligent offline extraction** (PDF, Word, OCR for images), 5 designer templates for resumes, comprehensive writing tools (Paraphraser, Grammar, Cover Letter, Translator, Summarizer, Citations, Tone Analysis), and real-time collaboration.
+A modern, full-stack AI Writers Assistant and Document Studio featuring **intelligent offline extraction** (PDF, Word, OCR for images), 5 designer templates for resumes, comprehensive writing tools (Paraphraser, Grammar, Cover Letter, Translator, Summarizer, Citations, Tone Analysis), and real-time collaboration.
 
 ---
 
@@ -40,8 +40,8 @@ If you have a Linux VPS with Docker and Docker Compose installed:
 
 ```bash
 # Clone your repository
-git clone https://github.com/your-username/writing-assistant.git
-cd writing-assistant
+git clone https://github.com/your-username/writers-assistant.git
+cd writers-assistant
 
 # Set your public URL or domain in your environment or .env
 export NEXT_PUBLIC_API_URL=https://api.yourdomain.com/api

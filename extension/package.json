@@ -1,9 +1,9 @@
 {
-  "name": "writing-assistant-extension",
-  "displayName": "AI Writing Assistant",
+  "name": "writers-assistant-extension",
+  "displayName": "AI Writers Assistant",
   "version": "0.0.1",
-  "description": "AI-powered writing assistant for every website.",
-  "author": "Writing Assistant Team",
+  "description": "AI-powered writers assistant for every website.",
+  "author": "Writers Assistant Team",
   "type": "module",
   "scripts": {
     "dev": "plasmo dev",

@@ -74,10 +74,10 @@ const Footer: React.FC = () => {
           <div className={styles.brandInfo}>
             <div className={styles.logo}>
               <Zap size={20} className={styles.logoIcon} />
-              <span className={styles.logoText}>Writing Assistant</span>
+              <span className={styles.logoText}>Writers Assistant</span>
             </div>
             <p className={styles.copyright}>
-              © {new Date().getFullYear()} Writing Assistant Inc. All rights reserved.
+              © {new Date().getFullYear()} Writers Assistant Inc. All rights reserved.
             </p>
           </div>
         </div>

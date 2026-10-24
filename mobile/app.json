@@ -1,7 +1,7 @@
 {
   "expo": {
-    "name": "Writing Assistant",
-    "slug": "writing-assistant-mobile",
+    "name": "Writers Assistant",
+    "slug": "writers-assistant-mobile",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/icon.png",

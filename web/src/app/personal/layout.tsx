@@ -7,7 +7,7 @@ export const metadata: Metadata = {
     canonical: '/personal',
   },
   openGraph: {
-    title: "Personal Writing Studio — Writing Assistant",
+    title: "Personal Writing Studio — Writers Assistant",
     description: "Express your thoughts with confidence in everyday life, relationships, and creative writing.",
     url: "https://writingassistant.app/personal",
   }

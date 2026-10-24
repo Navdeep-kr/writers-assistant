@@ -19,7 +19,7 @@ const DEFAULT_GUEST_DOCS: CloudDocument[] = [
     id: 'sample-welcome-doc',
     userId: 'guest',
     title: 'Welcome to AI Writing Suite',
-    content: `<h1>✨ Welcome to your AI Writing Assistant</h1>
+    content: `<h1>✨ Welcome to your AI Writers Assistant</h1>
 <p>This is your personal workspace for distraction-free writing, academic research, and professional communication.</p>
 <hr />
 <h3>🚀 Quick Start Guide:</h3>

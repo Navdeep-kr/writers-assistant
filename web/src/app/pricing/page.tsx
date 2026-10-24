@@ -6,12 +6,12 @@ import { CheckCircle, Zap, Star } from 'lucide-react';
 
 export const metadata: Metadata = {
   title: "Pricing & Plans — Transparent Subscription Tiers",
-  description: "Explore affordable pricing plans for Writing Assistant. Free forever plan available. Upgrade to Pro for unlimited paraphrasing, ATS resume templates, and multi-modal file imports.",
+  description: "Explore affordable pricing plans for Writers Assistant. Free forever plan available. Upgrade to Pro for unlimited paraphrasing, ATS resume templates, and multi-modal file imports.",
   alternates: {
     canonical: '/pricing',
   },
   openGraph: {
-    title: "Pricing & Plans — Writing Assistant",
+    title: "Pricing & Plans — Writers Assistant",
     description: "Start free or unlock unlimited Pro writing intelligence for just $9.99/mo.",
     url: "https://writingassistant.app/pricing",
   }

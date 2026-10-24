@@ -7,7 +7,7 @@ export const metadata: Metadata = {
     canonical: '/academic',
   },
   openGraph: {
-    title: "Academic Writing Suite — Writing Assistant",
+    title: "Academic Writing Suite — Writers Assistant",
     description: "Rigorous academic writing assistance, citation formatting, and plagiarism verification.",
     url: "https://writingassistant.app/academic",
   }

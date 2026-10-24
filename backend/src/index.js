@@ -30,6 +30,6 @@ io.on('connection', (socket) => {
     });
 });
 httpServer.listen(PORT, () => {
-    console.log(`🚀 Premium Writing assistant Backend (with WebSockets) running on http://localhost:${PORT}`);
+    console.log(`🚀 Premium Writers assistant Backend (with WebSockets) running on http://localhost:${PORT}`);
 });
 //# sourceMappingURL=index.js.map

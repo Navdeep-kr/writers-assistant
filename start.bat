@@ -1,9 +1,9 @@
 @echo off
 setlocal enabledelayedexpansion
-title AI Writing Assistant Studio
+title AI Writers Assistant Studio
 
 echo =======================================================
-echo          AI Writing Assistant Suite Launcher
+echo          AI Writers Assistant Suite Launcher
 echo =======================================================
 echo.
 
@@ -37,7 +37,7 @@ if not exist "node_modules\concurrently" (
 if exist "package-lock.json" del /f /q "package-lock.json" >nul 2>&1
 
 :: 4. Start Backend and Web App
-echo [2/2] Starting Writing Assistant (Backend on :4000, Web on :3000)...
+echo [2/2] Starting Writers Assistant (Backend on :4000, Web on :3000)...
 echo.
 echo Application will be available at: http://localhost:3000
 echo.

@@ -22,7 +22,7 @@ class WritingAssistantApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Premium AI Writing Assistant',
+      title: 'Premium AI Writers Assistant',
       debugShowCheckedModeBanner: false,
       theme: AppTheme.darkTheme,
       home: const EditorScreen(),

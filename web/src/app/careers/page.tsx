@@ -13,9 +13,9 @@ export default function CareersPage() {
 
       <main className={styles.content}>
         <section className={styles.section}>
-          <h2 className={styles.sectionTitle}>Why Writing Assistant?</h2>
+          <h2 className={styles.sectionTitle}>Why Writers Assistant?</h2>
           <div className={styles.textBlock}>
-            At <span className={styles.highlight}>Writing Assistant</span>, you'll work at the intersection of deep learning and human linguistics. We are a fast-growing, remote-first team dedicated to solving one of humanity's oldest challenges: effective communication.
+            At <span className={styles.highlight}>Writers Assistant</span>, you'll work at the intersection of deep learning and human linguistics. We are a fast-growing, remote-first team dedicated to solving one of humanity's oldest challenges: effective communication.
           </div>
           
           <div className={styles.grid}>
@@ -80,7 +80,7 @@ export default function CareersPage() {
         </section>
 
         <div className={styles.footerNote}>
-          Writing Assistant is an equal opportunity employer.
+          Writers Assistant is an equal opportunity employer.
         </div>
       </main>
     </div>

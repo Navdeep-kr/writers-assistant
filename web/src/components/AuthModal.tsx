@@ -184,7 +184,7 @@ const AuthModal: React.FC<AuthModalProps> = ({
               background: 'rgba(34, 211, 238, 0.08)', border: '1px solid rgba(34, 211, 238, 0.2)',
               color: 'var(--accent-cyan)', fontSize: '0.8rem', fontWeight: 600, marginBottom: '12px'
             }}>
-              <Sparkles size={14} /> AI Writing Assistant Suite
+              <Sparkles size={14} /> AI Writers Assistant Suite
             </div>
             <h2 style={{ 
               fontSize: '1.75rem', fontWeight: 700, letterSpacing: '-0.02em', 

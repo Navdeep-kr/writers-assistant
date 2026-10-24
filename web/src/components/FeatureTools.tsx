@@ -1168,7 +1168,7 @@ export const SocialMediaTool: React.FC<{ ai: any }> = ({ ai }) => {
       icon: '💼',
       platform: 'LinkedIn',
       tone: 'Professional',
-      topic: 'Announcing our open AI Writing Assistant featuring privacy-first local intelligence and multi-model routing. We spent 6 months testing with 15,000 writers to eliminate robotic jargon. 3 key lessons on building user-centric AI.'
+      topic: 'Announcing our open AI Writers Assistant featuring privacy-first local intelligence and multi-model routing. We spent 6 months testing with 15,000 writers to eliminate robotic jargon. 3 key lessons on building user-centric AI.'
     },
     {
       label: 'Twitter/X: 7 SaaS Scaling Truths',
@@ -3025,7 +3025,7 @@ export const SEOTitleGenerator: React.FC<{ ai: any }> = ({ ai }) => (
       {
         label: 'AI Writing & Productivity',
         icon: '📈',
-        text: 'ai writing assistant, free grammar checker, local intelligence, productivity tools 2026'
+        text: 'ai writers assistant, free grammar checker, local intelligence, productivity tools 2026'
       },
       {
         label: 'Web Performance Optimization',

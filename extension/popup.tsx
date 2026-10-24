@@ -11,7 +11,7 @@ const IndexPopup = () => {
       color: '#f8fafc',
       fontFamily: 'sans-serif'
     }}>
-      <h2 style={{ fontSize: '1.25rem', marginBottom: '16px' }}>Writing Assistant</h2>
+      <h2 style={{ fontSize: '1.25rem', marginBottom: '16px' }}>Writers Assistant</h2>
       <div style={{
         background: 'rgba(255, 255, 255, 0.05)',
         padding: '12px',

@@ -4,12 +4,12 @@ import styles from '../info-page.module.css';
 
 export const metadata: Metadata = {
   title: "Privacy Policy — Protecting Your Data & Creative Content",
-  description: "Read our comprehensive Privacy Policy. Learn how Writing Assistant safeguards your documents, enforces zero-data-sale rules, and respects GDPR and CCPA rights.",
+  description: "Read our comprehensive Privacy Policy. Learn how Writers Assistant safeguards your documents, enforces zero-data-sale rules, and respects GDPR and CCPA rights.",
   alternates: {
     canonical: '/privacy',
   },
   openGraph: {
-    title: "Privacy Policy — Writing Assistant",
+    title: "Privacy Policy — Writers Assistant",
     description: "Your trust is our cornerstone. Zero data selling, encrypted document processing, and complete user ownership.",
     url: "https://writingassistant.app/privacy",
   }
@@ -32,7 +32,7 @@ export default function PrivacyPage() {
         {/* Core Guarantee Callout */}
         <div className={styles.card} style={{ borderLeft: '4px solid #34d399', marginBottom: '40px' }}>
           <h3 style={{ fontSize: '1.2rem', color: 'var(--text-primary)', marginBottom: '8px' }}>
-            🔒 The Writing Assistant Zero-Data-Selling Pledge
+            🔒 The Writers Assistant Zero-Data-Selling Pledge
           </h3>
           <p style={{ margin: 0, color: 'var(--text-secondary)', lineHeight: 1.6 }}>
             We do <strong>not</strong> sell, rent, monetize, or broker your personal information or the contents of your documents to data aggregators, ad networks, or third-party organizations under any circumstances.
@@ -95,7 +95,7 @@ export default function PrivacyPage() {
         <section className={styles.section}>
           <h2 className={styles.sectionTitle}>4. Global Compliance: GDPR, CCPA &amp; User Rights</h2>
           <div className={styles.textBlock}>
-            Regardless of geographic location, Writing Assistant extends comprehensive rights to all users:
+            Regardless of geographic location, Writers Assistant extends comprehensive rights to all users:
           </div>
           <ul style={{ color: 'var(--text-secondary)', marginBottom: '24px', paddingLeft: '24px', lineHeight: 1.8 }}>
             <li><strong>Right of Access &amp; Portability:</strong> You can export all your cloud documents in PDF, DOCX, Markdown, or raw JSON at any time.</li>
@@ -107,7 +107,7 @@ export default function PrivacyPage() {
         <section className={styles.section}>
           <h2 className={styles.sectionTitle}>5. Children&apos;s Privacy (COPPA Compliance)</h2>
           <div className={styles.textBlock}>
-            Writing Assistant does not knowingly collect or solicit personal data from children under the age of 13. If we discover that personal data has been submitted by an individual under 13 without verifiable parental consent, we will promptly purge that information from our records.
+            Writers Assistant does not knowingly collect or solicit personal data from children under the age of 13. If we discover that personal data has been submitted by an individual under 13 without verifiable parental consent, we will promptly purge that information from our records.
           </div>
         </section>
 

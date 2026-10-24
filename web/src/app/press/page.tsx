@@ -7,7 +7,7 @@ export default function PressPage() {
       <header className={styles.header}>
         <h1 className={styles.title}>Press & Media</h1>
         <p className={styles.subtitle}>
-          Resources for journalists and creators covering the Writing Assistant.
+          Resources for journalists and creators covering the Writers Assistant.
         </p>
       </header>
 
@@ -31,7 +31,7 @@ export default function PressPage() {
         <section className={styles.section}>
           <h2 className={styles.sectionTitle}>In the News</h2>
           <div className={styles.textBlock}>
-            "The Writing Assistant is setting a new bar for AI-human collaboration." — <strong>Tech Monthly</strong>
+            "The Writers Assistant is setting a new bar for AI-human collaboration." — <strong>Tech Monthly</strong>
           </div>
           <div className={styles.textBlock}>
             "A must-have tool for students in the age of generative AI." — <strong>Education Weekly</strong>

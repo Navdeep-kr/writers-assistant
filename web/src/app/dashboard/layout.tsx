@@ -7,7 +7,7 @@ export const metadata: Metadata = {
     canonical: '/dashboard',
   },
   openGraph: {
-    title: "Dashboard & AI Writing Studio — Writing Assistant",
+    title: "Dashboard & AI Writing Studio — Writers Assistant",
     description: "Your unified workspace for distraction-free writing, paraphrasing, and document creation.",
     url: "https://writingassistant.app/dashboard",
   }

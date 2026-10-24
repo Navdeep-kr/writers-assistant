@@ -1,7 +1,7 @@
 {
   "name": "backend",
   "version": "1.0.0",
-  "description": "AI Writing Assistant Backend",
+  "description": "AI Writers Assistant Backend",
   "type": "module",
   "main": "src/index.ts",
   "scripts": {

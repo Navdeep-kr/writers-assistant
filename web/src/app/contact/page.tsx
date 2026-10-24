@@ -5,12 +5,12 @@ import ContactForm from '@/components/ContactForm';
 
 export const metadata: Metadata = {
   title: "Contact Us — Technical Support, Enterprise & Partnerships",
-  description: "Get in touch with the Writing Assistant team. 24/7 technical assistance, enterprise team licensing, partnership opportunities, and customer support.",
+  description: "Get in touch with the Writers Assistant team. 24/7 technical assistance, enterprise team licensing, partnership opportunities, and customer support.",
   alternates: {
     canonical: '/contact',
   },
   openGraph: {
-    title: "Contact Writing Assistant — Get In Touch",
+    title: "Contact Writers Assistant — Get In Touch",
     description: "Connect with our customer support, enterprise sales, or engineering team. We're here to help you achieve writing excellence.",
     url: "https://writingassistant.app/contact",
   }
@@ -96,7 +96,7 @@ export default function ContactPage() {
         </section>
 
         <div className={styles.footerNote}>
-          Writing Assistant Inc. • Verified Response Guarantee • Security: security@writingassistant.app
+          Writers Assistant Inc. • Verified Response Guarantee • Security: security@writingassistant.app
         </div>
       </main>
     </div>

@@ -36,7 +36,7 @@ export default function AffiliatesPage() {
 
         <section className={styles.section} style={{ textAlign: 'center', marginTop: '60px' }}>
           <h2 className={styles.sectionTitle} style={{ justifyContent: 'center' }}>Ready to get started?</h2>
-          <p style={{ marginBottom: '32px' }}>Join over 1,000 active partners who are already earning with Writing Assistant.</p>
+          <p style={{ marginBottom: '32px' }}>Join over 1,000 active partners who are already earning with Writers Assistant.</p>
           <span className={styles.highlight} style={{ fontSize: '1.5rem', cursor: 'pointer', border: '1px solid var(--accent-cyan)', padding: '12px 24px', borderRadius: '12px' }}>Apply to Join →</span>
         </section>
       </main>

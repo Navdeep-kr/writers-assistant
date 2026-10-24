@@ -62,7 +62,7 @@ class _EditorScreenState extends State<EditorScreen> {
           const Icon(LucideIcons.penLine, color: Colors.indigoAccent, size: 24),
           const SizedBox(width: 12),
           Text(
-            'Writing Assistant',
+            'Writers Assistant',
             style: GoogleFonts.plusJakartaSans(
               fontSize: 18,
               fontWeight: FontWeight.w900,

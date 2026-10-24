@@ -5,12 +5,12 @@ import styles from '../info-page.module.css';
 
 export const metadata: Metadata = {
   title: "Responsible AI — Ethical Framework, Transparency & Integrity",
-  description: "Learn how Writing Assistant approaches generative AI with ethical guardrails, academic integrity, bias auditing, and human-in-the-loop agency.",
+  description: "Learn how Writers Assistant approaches generative AI with ethical guardrails, academic integrity, bias auditing, and human-in-the-loop agency.",
   alternates: {
     canonical: '/responsible-ai',
   },
   openGraph: {
-    title: "Responsible AI — Writing Assistant",
+    title: "Responsible AI — Writers Assistant",
     description: "Our manifesto on human-first artificial intelligence, transparency, and linguistic safety.",
     url: "https://writingassistant.app/responsible-ai",
   }
@@ -33,7 +33,7 @@ export default function ResponsibleAIPage() {
         <section className={styles.section}>
           <h2 className={styles.sectionTitle}>The Human-in-the-Loop Philosophy</h2>
           <div className={styles.textBlock}>
-            At <span className={styles.highlight}>Writing Assistant</span>, we firmly reject the notion that artificial intelligence should replace human cognition or authorship. Language is the vessel of human empathy, nuance, and critical thought. Our tools are architected from the ground up as <strong>cognitive co-pilots</strong>—delivering structure, clarity, and grammatical precision while leaving 100% of creative decisions in the writer&apos;s hands.
+            At <span className={styles.highlight}>Writers Assistant</span>, we firmly reject the notion that artificial intelligence should replace human cognition or authorship. Language is the vessel of human empathy, nuance, and critical thought. Our tools are architected from the ground up as <strong>cognitive co-pilots</strong>—delivering structure, clarity, and grammatical precision while leaving 100% of creative decisions in the writer&apos;s hands.
           </div>
         </section>
 
@@ -95,7 +95,7 @@ export default function ResponsibleAIPage() {
         </section>
 
         <div className={styles.footerNote}>
-          Writing Assistant Ethical Oversight Committee • ethics@writingassistant.app • Standards aligned with UNESCO &amp; NIST AI Risk Management Frameworks
+          Writers Assistant Ethical Oversight Committee • ethics@writingassistant.app • Standards aligned with UNESCO &amp; NIST AI Risk Management Frameworks
         </div>
       </main>
     </div>

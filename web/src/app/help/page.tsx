@@ -10,15 +10,15 @@ export const metadata: Metadata = {
     canonical: '/help',
   },
   openGraph: {
-    title: "Writing Assistant Help Center & Knowledge Base",
-    description: "Explore comprehensive guides, troubleshooting tips, and answers to common questions about Writing Assistant.",
+    title: "Writers Assistant Help Center & Knowledge Base",
+    description: "Explore comprehensive guides, troubleshooting tips, and answers to common questions about Writers Assistant.",
     url: "https://writingassistant.app/help",
   }
 };
 
 const FAQ_ITEMS = [
   {
-    q: "What file formats can I import into Writing Assistant?",
+    q: "What file formats can I import into Writers Assistant?",
     a: "You can import PDF documents, Microsoft Word (.docx), Plain Text (.txt), Markdown (.md), CSV files, and image files (PNG, JPG, WEBP). For images and scanned documents, our multi-modal OCR engine automatically transcribes the visual text directly into your workspace."
   },
   {
@@ -26,7 +26,7 @@ const FAQ_ITEMS = [
     a: "Our Resume Studio automatically formats your employment history, technical competencies, and academic credentials to pass Applicant Tracking Systems (ATS) used by Fortune 500 employers. You can toggle between 4 designer templates (Executive, Modern Silicon, Minimalist Classic, Creative Portfolio) and export to clean, unclipped PDF or Print with zero watermarks."
   },
   {
-    q: "Does Writing Assistant work without an account?",
+    q: "Does Writers Assistant work without an account?",
     a: "Yes! Guest users can use all core writing tools, import documents, and export to PDF/DOCX immediately. Your drafts are saved safely in your browser's local storage. When you create a free account, all your local documents are automatically synchronized to your cloud database."
   },
   {

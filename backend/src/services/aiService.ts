@@ -150,7 +150,7 @@ export const checkGrammar = async (text: string) => {
 export const improveStyle = async (text: string, style: string, goals?: WritingGoals, brandVoice?: string) => {
   const goalPrompt = goals ? `Target Audience: ${goals.audience}. Formality: ${goals.formality}. Intent: ${goals.intent}.` : '';
   const brandPrompt = brandVoice ? `Follow this specific brand voice/style: ${brandVoice}.` : '';
-  const prompt = `You are an expert writing assistant. Rewrite the following text in a ${style} style. ${goalPrompt} ${brandPrompt} 
+  const prompt = `You are an expert writers assistant. Rewrite the following text in a ${style} style. ${goalPrompt} ${brandPrompt} 
           IMPORTANT: Do NOT return the same text. You MUST transform, improve, and refine the text. 
           Maintain the original meaning but improve clarity and flow. Output ONLY the rewritten text, no conversational filler.`;
 
@@ -480,7 +480,7 @@ export const CREATOR_PROMPTS: Record<string, string> = {
 };
 
 export const generateCreatorContent = async (toolId: string, input: string) => {
-  const prompt = CREATOR_PROMPTS[toolId] || 'You are an expert AI writing assistant for creators.';
+  const prompt = CREATOR_PROMPTS[toolId] || 'You are an expert AI writers assistant for creators.';
   const systemPrompt = `${prompt} Generate a 100% functional, ready-to-use piece based on the input. Output ONLY the content.`;
   try {
     return await queryLLM(systemPrompt, input);

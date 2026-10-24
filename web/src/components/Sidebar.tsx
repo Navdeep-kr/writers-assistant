@@ -85,7 +85,7 @@ const Sidebar: React.FC<SidebarProps> = ({
       <div className={styles.aboutSection}>
         <h4 className={styles.aboutHeading}>Master Your Writing</h4>
         <p className={styles.aboutText}>
-          Writing Assistant is your high-performance workspace designed for clarity and impact. 
+          Writers Assistant is your high-performance workspace designed for clarity and impact. 
           Leverage multidimensional AI analysis to refine your tone, ensure grammatical perfection, 
           and bypass machine-detection patterns. Whether you're crafting a professional report 
           or a creative piece, our assistant ensures your voice is heard exactly as intended.

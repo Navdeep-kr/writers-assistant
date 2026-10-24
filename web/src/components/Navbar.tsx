@@ -43,7 +43,7 @@ const Navbar: React.FC<NavbarProps> = ({
           <div className={styles.logoIconWrapper}>
             <Zap size={18} />
           </div>
-          <span className={styles.logoText}>Writing Assistant</span>
+          <span className={styles.logoText}>Writers Assistant</span>
         </Link>
       </div>
 

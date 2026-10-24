@@ -5,13 +5,13 @@ import styles from '../info-page.module.css';
 
 export const metadata: Metadata = {
   title: "About Us — Empowering Human Communication with AI",
-  description: "Discover the vision, technology, and team behind Writing Assistant. Built for writers, professionals, researchers, and creators worldwide with zero-compromise linguistic accuracy.",
+  description: "Discover the vision, technology, and team behind Writers Assistant. Built for writers, professionals, researchers, and creators worldwide with zero-compromise linguistic accuracy.",
   alternates: {
     canonical: '/about',
   },
   openGraph: {
-    title: "About Writing Assistant — Intelligent AI Writing Suite",
-    description: "Discover the vision, technology, and team behind Writing Assistant. Built for writers, professionals, researchers, and creators worldwide.",
+    title: "About Writers Assistant — Intelligent AI Writing Suite",
+    description: "Discover the vision, technology, and team behind Writers Assistant. Built for writers, professionals, researchers, and creators worldwide.",
     url: "https://writingassistant.app/about",
   }
 };
@@ -53,17 +53,17 @@ export default function AboutPage() {
         <section className={styles.section}>
           <h2 className={styles.sectionTitle}>Who We Are</h2>
           <div className={styles.textBlock}>
-            Founded in 2024 by an international collective of computational linguists, machine learning researchers, and interface designers, <span className={styles.highlight}>Writing Assistant</span> was created to solve a fundamental paradox: while generative AI can produce vast quantities of text in seconds, true communication demands nuance, contextual resonance, and distinctive human voice.
+            Founded in 2024 by an international collective of computational linguists, machine learning researchers, and interface designers, <span className={styles.highlight}>Writers Assistant</span> was created to solve a fundamental paradox: while generative AI can produce vast quantities of text in seconds, true communication demands nuance, contextual resonance, and distinctive human voice.
           </div>
           <div className={styles.textBlock}>
-            Rather than replacing the writer, our software functions as a responsive cognitive multiplier. Whether you are drafting a breakthrough academic thesis, optimizing an executive board deck, or polishing an ATS-friendly engineering resume, Writing Assistant provides real-time syntactic analysis, tone calibration, and stylistic suggestions that elevate your authentic perspective.
+            Rather than replacing the writer, our software functions as a responsive cognitive multiplier. Whether you are drafting a breakthrough academic thesis, optimizing an executive board deck, or polishing an ATS-friendly engineering resume, Writers Assistant provides real-time syntactic analysis, tone calibration, and stylistic suggestions that elevate your authentic perspective.
           </div>
         </section>
 
         <section className={styles.section}>
           <h2 className={styles.sectionTitle}>Dual-Engine Hybrid Intelligence</h2>
           <div className={styles.textBlock}>
-            What differentiates Writing Assistant from generic chatbots is our dual-engine architecture:
+            What differentiates Writers Assistant from generic chatbots is our dual-engine architecture:
           </div>
           <div className={styles.grid}>
             <div className={styles.card}>

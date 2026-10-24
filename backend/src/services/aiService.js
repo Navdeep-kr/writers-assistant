@@ -29,7 +29,7 @@ export const improveStyle = async (text, style, goals, brandVoice) => {
             messages: [
                 {
                     role: 'system',
-                    content: `You are an expert writing assistant. Rewrite the following text in a ${style} style. ${goalPrompt} ${brandPrompt} Maintain the original meaning but improve clarity and flow. Output ONLY the rewritten text, no conversational filler.`,
+                    content: `You are an expert writers assistant. Rewrite the following text in a ${style} style. ${goalPrompt} ${brandPrompt} Maintain the original meaning but improve clarity and flow. Output ONLY the rewritten text, no conversational filler.`,
                 },
                 { role: 'user', content: text },
             ],

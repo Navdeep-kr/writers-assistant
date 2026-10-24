@@ -1,5 +1,5 @@
 {
-  "name": "writing-assistant-suite",
+  "name": "writers-assistant-suite",
   "version": "1.0.0",
   "scripts": {
     "dev": "concurrently -n \"backend,web\" -c \"blue,green\" \"npm --prefix backend run dev\" \"npm --prefix web run dev\"",

@@ -7,7 +7,7 @@ export const metadata: Metadata = {
     canonical: '/professional',
   },
   openGraph: {
-    title: "Professional Intelligence Suite — Writing Assistant",
+    title: "Professional Intelligence Suite — Writers Assistant",
     description: "Industry-grade AI writing tools for high-performing engineering, sales, and executive teams.",
     url: "https://writingassistant.app/professional",
   }

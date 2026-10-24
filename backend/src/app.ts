@@ -19,13 +19,13 @@ app.use((req, res, next) => {
 // Main Routes
 app.get('/api/health', (req, res) => res.json({ 
   status: 'ok', 
-  service: 'Writing Assistant Backend API',
+  service: 'Writers Assistant Backend API',
   websockets: 'active',
   timestamp: new Date().toISOString() 
 }));
 
 app.get('/api', (req, res) => res.json({
-  service: 'Writing Assistant API Gateway',
+  service: 'Writers Assistant API Gateway',
   status: 'operational',
   version: '1.0.0',
   documentation: '/',
@@ -43,7 +43,7 @@ app.get('/', (req, res) => {
   
   if (isApiRequest) {
     return res.json({
-      name: 'Writing Assistant Backend API & WebSocket Gateway',
+      name: 'Writers Assistant Backend API & WebSocket Gateway',
       status: 'operational',
       version: '1.0.0',
       port: 4000,
@@ -69,7 +69,7 @@ app.get('/', (req, res) => {
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Writing Assistant API & WebSocket Gateway</title>
+  <title>Writers Assistant API & WebSocket Gateway</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
@@ -282,7 +282,7 @@ app.get('/', (req, res) => {
       <div class="status-badge">
         <span class="status-dot"></span> All Systems Operational
       </div>
-      <h1>Writing Assistant Core Engine</h1>
+      <h1>Writers Assistant Core Engine</h1>
       <p class="desc">
         The backend API and real-time WebSocket cluster are live and listening on port <strong>4000</strong>. This server processes AI inference, document persistence, and multi-user synchronization for the web and mobile applications.
       </p>
@@ -362,7 +362,7 @@ app.get('/', (req, res) => {
     </div>
 
     <div class="footer">
-      Writing Assistant API Server • Running locally on <strong>http://localhost:4000</strong>
+      Writers Assistant API Server • Running locally on <strong>http://localhost:4000</strong>
     </div>
   </div>
 </body>

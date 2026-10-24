@@ -91,7 +91,7 @@ export default function SignUpPage() {
             fontWeight: 600,
             marginBottom: '12px'
           }}>
-            <Sparkles size={14} /> AI Writing Assistant
+            <Sparkles size={14} /> AI Writers Assistant
           </div>
           <h1 style={{
             fontSize: '1.9rem',
