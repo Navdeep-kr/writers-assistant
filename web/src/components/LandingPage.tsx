@@ -85,8 +85,9 @@ const LandingPage: React.FC<LandingPageProps> = ({ onStart, onLogin }) => {
           animate={{ opacity: 1, scale: 1 }}
           transition={{ delay: 0.4, duration: 1 }}
           className={styles.heroDemoWrapper}
+          style={{ width: '100%', display: 'flex', justifyContent: 'center', alignItems: 'center', marginLeft: 'auto', marginRight: 'auto' }}
         >
-          <div className={styles.mockWindow}>
+          <div className={styles.mockWindow} style={{ width: '100%', maxWidth: '1200px', marginLeft: 'auto', marginRight: 'auto' }}>
             <div className={styles.windowHeader}>
               <div className={styles.dot}></div><div className={styles.dot}></div><div className={styles.dot}></div>
             </div>
@@ -243,7 +244,7 @@ const LandingPage: React.FC<LandingPageProps> = ({ onStart, onLogin }) => {
         <h2 className={styles.sectionTitle}>AI that works WITH you, not instead of you</h2>
         <p className={styles.sectionSubtitle}>Watch how our multi-provider intelligence enhances your voice in real time.</p>
         
-        <div className={styles.splitDemo}>
+        <div className={styles.splitDemo} style={{ width: '100%', maxWidth: '1200px', marginLeft: 'auto', marginRight: 'auto' }}>
           <div className={styles.demoPane}>
             <div className={styles.demoPaneHeader}>Original Draft</div>
             <div className={styles.demoText} style={{ opacity: 0.7 }}>
@@ -305,7 +306,7 @@ const LandingPage: React.FC<LandingPageProps> = ({ onStart, onLogin }) => {
           Start free forever or unlock unlimited AI processing, ATS resume templates, and multi-user live collaboration.
         </p>
 
-        <div className={styles.pricingGrid}>
+        <div className={styles.pricingGrid} style={{ width: '100%', maxWidth: '1400px', marginLeft: 'auto', marginRight: 'auto' }}>
           {/* FREE PLAN */}
           <div className={styles.priceCard}>
             <div className={styles.starterBadge}>Starter • 100% Free</div>
@@ -369,7 +370,7 @@ const LandingPage: React.FC<LandingPageProps> = ({ onStart, onLogin }) => {
 
       {/* 6. FINAL CTA */}
       <section className={styles.section}>
-        <div className={styles.finalCta}>
+        <div className={styles.finalCta} style={{ width: '100%', maxWidth: '1200px', marginLeft: 'auto', marginRight: 'auto' }}>
           <h2>Ready to elevate your writing?</h2>
           <p>Access all tools instantly from your unified command center.</p>
           <GlassButton 

@@ -677,10 +677,32 @@
   .heroContent {
     max-width: min(90vw, 2600px) !important;
   }
-  .heroDemoWrapper,
   .interactiveDemo,
-  .pricingGrid,
+  .pricingGrid {
+    max-width: min(94vw, 2200px) !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+  }
+  .heroDemoWrapper,
+  .mockWindow,
+  .splitDemo,
   .finalCta {
-    max-width: min(94vw, 2800px) !important;
+    max-width: min(92vw, 1200px) !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+    width: 100% !important;
+  }
+}
+
+/* 20% - 35% Ultra-Extreme Zoom (Viewport > 3600px) */
+@media (min-width: 3600px) {
+  .heroDemoWrapper,
+  .mockWindow,
+  .splitDemo,
+  .finalCta {
+    max-width: 1200px !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+    width: 100% !important;
   }
 }
