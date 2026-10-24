@@ -561,6 +561,47 @@ a {
   max-width: 1200px !important;
 }
 
+/* Universal Toolbar & Chip Group Wrap Safety (Prevents any button row from clipping) */
+[class*="outcomeBar"],
+[class*="formatPillGroup"],
+[class*="templateGroup"],
+[class*="viewToggleGroup"],
+[class*="sampleBar"],
+[class*="headerActions"],
+[class*="workspaceControls"],
+[class*="fileTransferBar"],
+[class*="demoModes"],
+[class*="actionGroup"],
+[class*="toolbar"] {
+  display: flex !important;
+  flex-wrap: wrap !important;
+  max-width: 100% !important;
+  gap: 8px !important;
+}
+
+[class*="outcomeBar"] {
+  align-items: center !important;
+  margin-left: auto !important;
+}
+
+@media (max-width: 1280px) {
+  [class*="outcomeBar"] {
+    margin-left: 0 !important;
+    width: 100% !important;
+    overflow-x: auto !important;
+    scrollbar-width: none !important;
+    -webkit-overflow-scrolling: touch !important;
+    padding-bottom: 4px !important;
+  }
+}
+
+[class*="outcomeBar"]::-webkit-scrollbar,
+[class*="templateGroup"]::-webkit-scrollbar,
+[class*="sampleBar"]::-webkit-scrollbar,
+[class*="formatPillGroup"]::-webkit-scrollbar {
+  display: none !important;
+}
+
 /* Ultra-Extreme Zoom-Out (20% - 35% Zoom or 8K/Multi-Monitor 3600px+) */
 @media (min-width: 3600px) {
   html {

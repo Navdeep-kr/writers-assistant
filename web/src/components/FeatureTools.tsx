@@ -81,15 +81,17 @@ const BaseTool: React.FC<ToolProps> = ({ title, description, placeholder, action
   return (
     <div className={`${styles.toolContainer} premium-card fade-in ${theme ? styles[theme] : ''}`}>
       <header className={styles.header}>
-        <div className={styles.iconWrapper}>{icon}</div>
-        <div className={styles.headerText}>
-          <div style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
-            <h1 className="text-gradient">{title}</h1>
-            {output && mode === 'Local Intelligence' && (
-              <span className={styles.modeBadge}>Local Intelligence</span>
-            )}
+        <div className={styles.headerInfo}>
+          <div className={styles.iconWrapper}>{icon}</div>
+          <div className={styles.headerText}>
+            <div style={{ display: 'flex', alignItems: 'center', gap: '12px', flexWrap: 'wrap' }}>
+              <h1 className="text-gradient">{title}</h1>
+              {output && mode === 'Local Intelligence' && (
+                <span className={styles.modeBadge}>Local Intelligence</span>
+              )}
+            </div>
+            <p>{description}</p>
           </div>
-          <p>{description}</p>
         </div>
       </header>
       
@@ -226,16 +228,18 @@ export const Paraphraser: React.FC<{ ai: any }> = ({ ai }) => {
 
   return (
     <div className={`${styles.toolContainer} premium-card fade-in ${styles.accentBlue}`}>
-       <header className={styles.header}>
-        <div className={styles.iconWrapper}>🔄</div>
-        <div className={styles.headerText}>
-          <div style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
-            <h1 className="text-gradient">AI Strategy Paraphraser</h1>
-            {result && mode === 'Local Intelligence' && (
-              <span className={styles.modeBadge}>Local Intelligence</span>
-            )}
+      <header className={styles.header}>
+        <div className={styles.headerInfo}>
+          <div className={styles.iconWrapper}>🔄</div>
+          <div className={styles.headerText}>
+            <div style={{ display: 'flex', alignItems: 'center', gap: '12px', flexWrap: 'wrap' }}>
+              <h1 className="text-gradient">AI Strategy Paraphraser</h1>
+              {result && mode === 'Local Intelligence' && (
+                <span className={styles.modeBadge}>Local Intelligence</span>
+              )}
+            </div>
+            <p>Go beyond word-swapping. Rewrite for specific impact.</p>
           </div>
-          <p>Go beyond word-swapping. Rewrite for specific impact.</p>
         </div>
         <div className={styles.outcomeBar}>
           {outcomes.map(o => (
@@ -401,10 +405,12 @@ export const Summarizer: React.FC<{ ai: any }> = ({ ai }) => {
   return (
     <div className={`${styles.toolContainer} premium-card fade-in ${styles.accentBlue}`}>
       <header className={styles.header}>
-        <div className={styles.iconWrapper}>📝</div>
-        <div className={styles.headerText}>
-          <h1 className="text-gradient">AI Smart Summarizer</h1>
-          <p>Condense lengthy research papers, financial filings, and articles into executive designer formats.</p>
+        <div className={styles.headerInfo}>
+          <div className={styles.iconWrapper}>📝</div>
+          <div className={styles.headerText}>
+            <h1 className="text-gradient">AI Smart Summarizer</h1>
+            <p>Condense lengthy research papers, financial filings, and articles into executive designer formats.</p>
+          </div>
         </div>
       </header>
 
@@ -742,13 +748,15 @@ export const AIChatTool: React.FC<{ ai: any }> = ({ ai }) => {
   return (
     <div className={`${styles.toolContainer} premium-card fade-in ${styles.accentGold}`}>
       <header className={styles.header}>
-        <div className={styles.iconWrapper}>{currentPersona.icon}</div>
-        <div className={styles.headerText}>
-          <div style={{ display: 'flex', alignItems: 'center', gap: '12px', flexWrap: 'wrap' }}>
-            <h1 className="text-gradient">AI Writing Mentor: {currentPersona.name}</h1>
-            <span className={styles.modeBadge}>{currentPersona.role}</span>
+        <div className={styles.headerInfo}>
+          <div className={styles.iconWrapper}>{currentPersona.icon}</div>
+          <div className={styles.headerText}>
+            <div style={{ display: 'flex', alignItems: 'center', gap: '12px', flexWrap: 'wrap' }}>
+              <h1 className="text-gradient">AI Writing Mentor: {currentPersona.name}</h1>
+              <span className={styles.modeBadge}>{currentPersona.role}</span>
+            </div>
+            <p>Collaborate with specialized writing personas for rhetoric, pitch strategy, and storytelling.</p>
           </div>
-          <p>Collaborate with specialized writing personas for rhetoric, pitch strategy, and storytelling.</p>
         </div>
       </header>
 
@@ -923,10 +931,12 @@ export const CoverLetterTool: React.FC<{ ai: any }> = ({ ai }) => {
   return (
     <div className={`${styles.toolContainer} premium-card fade-in ${styles.accentPurple}`}>
       <header className={styles.header}>
-        <div className={styles.iconWrapper}>✉️</div>
-        <div className={styles.headerText}>
-          <h1 className="text-gradient">AI Cover Letter Generator & Designer</h1>
-          <p>Generate high-conversion cover letters presented on luxury corporate and modern tech letterheads.</p>
+        <div className={styles.headerInfo}>
+          <div className={styles.iconWrapper}>✉️</div>
+          <div className={styles.headerText}>
+            <h1 className="text-gradient">AI Cover Letter Generator & Designer</h1>
+            <p>Generate high-conversion cover letters presented on luxury corporate and modern tech letterheads.</p>
+          </div>
         </div>
       </header>
 
@@ -1313,10 +1323,12 @@ export const SocialMediaTool: React.FC<{ ai: any }> = ({ ai }) => {
   return (
     <div className={`${styles.toolContainer} premium-card fade-in ${styles.accentPurple}`}>
       <header className={styles.header}>
-        <div className={styles.iconWrapper}>📱</div>
-        <div className={styles.headerText}>
-          <h1 className="text-gradient">Social Media Post Writer & Mockup Studio</h1>
-          <p>Create viral-ready content tailored to LinkedIn, X, and Instagram with real-time feed mockups.</p>
+        <div className={styles.headerInfo}>
+          <div className={styles.iconWrapper}>📱</div>
+          <div className={styles.headerText}>
+            <h1 className="text-gradient">Social Media Post Writer & Mockup Studio</h1>
+            <p>Create viral-ready content tailored to LinkedIn, X, and Instagram with real-time feed mockups.</p>
+          </div>
         </div>
       </header>
 
@@ -1690,10 +1702,12 @@ Growth Marketing Lead @ Loom (2018 - 2021)
   return (
     <div className={`${styles.toolContainer} premium-card fade-in ${styles.accentPurple}`}>
       <header className={styles.header}>
-        <div className={styles.iconWrapper}>📄</div>
-        <div className={styles.headerText}>
-          <h1 className="text-gradient">AI Resume Content Builder & Designer</h1>
-          <p>Craft ATS-optimized resumes with 5 luxury designer templates and prebuilt profiles.</p>
+        <div className={styles.headerInfo}>
+          <div className={styles.iconWrapper}>📄</div>
+          <div className={styles.headerText}>
+            <h1 className="text-gradient">AI Resume Content Builder & Designer</h1>
+            <p>Craft ATS-optimized resumes with 5 luxury designer templates and prebuilt profiles.</p>
+          </div>
         </div>
       </header>
 
@@ -2154,11 +2168,13 @@ export const AIDetectorTool: React.FC<{ ai: any }> = ({ ai }) => {
 
   return (
     <div className={`${styles.toolContainer} premium-card fade-in ${styles.accentGreen}`}>
-       <header className={styles.header}>
-        <div className={styles.iconWrapper}>🔍</div>
-        <div className={styles.headerText}>
-          <h1 className="text-gradient">AI Content Detector</h1>
-          <p>Inspect burstiness, perplexity, and syntax predictability to verify human authorship.</p>
+      <header className={styles.header}>
+        <div className={styles.headerInfo}>
+          <div className={styles.iconWrapper}>🔍</div>
+          <div className={styles.headerText}>
+            <h1 className="text-gradient">AI Content Detector</h1>
+            <p>Inspect burstiness, perplexity, and syntax predictability to verify human authorship.</p>
+          </div>
         </div>
       </header>
       <div className={styles.workspace}>
@@ -2488,11 +2504,13 @@ export const PlagiarismTool: React.FC<{ ai: any }> = ({ ai }) => {
 
   return (
     <div className={`${styles.toolContainer} premium-card fade-in ${styles.accentGreen}`}>
-       <header className={styles.header}>
-        <div className={styles.iconWrapper}>📄</div>
-        <div className={styles.headerText}>
-          <h1 className="text-gradient">Plagiarism Checker</h1>
-          <p>Scan your content against billions of web pages and academic papers.</p>
+      <header className={styles.header}>
+        <div className={styles.headerInfo}>
+          <div className={styles.iconWrapper}>📄</div>
+          <div className={styles.headerText}>
+            <h1 className="text-gradient">Plagiarism Checker</h1>
+            <p>Scan your content against billions of web pages and academic papers.</p>
+          </div>
         </div>
       </header>
       <div className={styles.workspace}>
@@ -2801,11 +2819,13 @@ export const CitationGenerator: React.FC<{ ai: any }> = ({ ai }) => {
 
   return (
     <div className={`${styles.toolContainer} premium-card fade-in ${styles.accentGold}`}>
-       <header className={styles.header}>
-        <div className={styles.iconWrapper}>📚</div>
-        <div className={styles.headerText}>
-          <h1 className="text-gradient">Citation Generator</h1>
-          <p>Generate academic-grade citations in APA, MLA, Chicago, Harvard, IEEE, and BibTeX styles.</p>
+      <header className={styles.header}>
+        <div className={styles.headerInfo}>
+          <div className={styles.iconWrapper}>📚</div>
+          <div className={styles.headerText}>
+            <h1 className="text-gradient">Citation Generator</h1>
+            <p>Generate academic-grade citations in APA, MLA, Chicago, Harvard, IEEE, and BibTeX styles.</p>
+          </div>
         </div>
       </header>
       <div className={styles.workspace}>
@@ -3311,16 +3331,18 @@ Dynamic feed-in tariffs combined with localized storage arbitrage shorten capita
 
   return (
     <div className={`${styles.toolContainer} premium-card fade-in ${styles.accentGold}`} style={{ maxWidth: '1440px' }}>
-       <header className={styles.header}>
-        <div className={styles.iconWrapper}>✍️</div>
-        <div className={styles.headerText}>
-          <div style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
-            <h1 className="text-gradient">Academic Co-Writer</h1>
-            <span style={{ fontSize: '0.74rem', padding: '3px 8px', borderRadius: '6px', background: 'rgba(234, 179, 8, 0.15)', color: '#eab308', fontWeight: 700 }}>
-              {manuscriptFormat.toUpperCase()} PUBLICATION READY
-            </span>
+      <header className={styles.header}>
+        <div className={styles.headerInfo}>
+          <div className={styles.iconWrapper}>✍️</div>
+          <div className={styles.headerText}>
+            <div style={{ display: 'flex', alignItems: 'center', gap: '12px', flexWrap: 'wrap' }}>
+              <h1 className="text-gradient">Academic Co-Writer</h1>
+              <span style={{ fontSize: '0.74rem', padding: '3px 8px', borderRadius: '6px', background: 'rgba(234, 179, 8, 0.15)', color: '#eab308', fontWeight: 700 }}>
+                {manuscriptFormat.toUpperCase()} PUBLICATION READY
+              </span>
+            </div>
+            <p>Draft manuscripts in prestigious academic layouts: IEEE Two-Column, Nature Brief, or APA 7.</p>
           </div>
-          <p>Draft manuscripts in prestigious academic layouts: IEEE Two-Column, Nature Brief, or APA 7.</p>
         </div>
       </header>
 
