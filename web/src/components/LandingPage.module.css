@@ -31,7 +31,7 @@
 .section {
   position: relative;
   z-index: 1;
-  max-width: min(94vw, 2200px);
+  max-width: min(95vw, 3000px);
   width: 100%;
   padding: clamp(60px, 8vh, 120px) clamp(16px, 3vw, 40px);
   display: flex;
@@ -54,7 +54,7 @@
   font-size: 1.2rem;
   color: var(--text-secondary);
   text-align: center;
-  max-width: 700px;
+  max-width: min(90vw, 1100px);
   margin-bottom: 60px;
   line-height: 1.6;
 }
@@ -65,7 +65,7 @@
 .hero {
   padding: clamp(100px, 14vh, 180px) clamp(16px, 3vw, 40px) clamp(40px, 6vh, 80px);
   width: 100%;
-  max-width: min(94vw, 2200px);
+  max-width: min(95vw, 3000px);
 }
 
 .heroContent {
@@ -74,7 +74,7 @@
   align-items: center;
   text-align: center;
   gap: 24px;
-  max-width: min(92vw, 1300px);
+  max-width: min(92vw, 2200px);
   width: 100%;
   margin: 0 auto;
 }
@@ -106,7 +106,7 @@
   font-size: 1.35rem;
   line-height: 1.6;
   color: var(--text-secondary);
-  max-width: 700px;
+  max-width: min(90vw, 1100px);
 }
 
 .ctaGroup {
@@ -121,7 +121,7 @@
 .heroDemoWrapper {
   margin-top: clamp(40px, 6vh, 60px);
   width: 100%;
-  max-width: min(94vw, 1500px);
+  max-width: min(94vw, 2400px);
 }
 
 .mockWindow {
@@ -437,7 +437,7 @@
   grid-template-columns: repeat(auto-fit, minmax(min(280px, 100%), 1fr));
   gap: 24px;
   width: 100%;
-  max-width: min(94vw, 1600px);
+  max-width: min(94vw, 2600px);
 }
 
 .analyticCard {
@@ -491,7 +491,7 @@
   grid-template-columns: repeat(auto-fit, minmax(min(320px, 100%), 1fr));
   gap: clamp(24px, 3vw, 40px);
   width: 100%;
-  max-width: min(90vw, 1050px);
+  max-width: min(94vw, 2200px);
 }
 
 .priceCard {
@@ -563,7 +563,7 @@
   padding: clamp(40px, 6vw, 80px);
   text-align: center;
   width: 100%;
-  max-width: min(94vw, 1600px);
+  max-width: min(94vw, 2600px);
   position: relative;
   overflow: hidden;
 }
@@ -602,4 +602,70 @@
   .demoInput { padding: 20px 14px; font-size: 1.1rem; }
   .price { font-size: 2.75rem; }
   .finalCta { padding: 32px 16px; border-radius: 20px; }
+}
+
+.starterBadge {
+  display: inline-block;
+  background: rgba(255, 255, 255, 0.08);
+  color: var(--text-secondary);
+  border: 1px solid var(--glass-border);
+  padding: 4px 12px;
+  border-radius: 6px;
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  margin-bottom: 12px;
+  width: fit-content;
+}
+
+.teamBadge {
+  display: inline-block;
+  background: rgba(139, 92, 246, 0.15);
+  color: var(--accent-violet);
+  border: 1px solid rgba(139, 92, 246, 0.3);
+  padding: 4px 12px;
+  border-radius: 6px;
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  margin-bottom: 12px;
+  width: fit-content;
+}
+
+/* =========================================
+   11. ULTRA-WIDE & ZOOM-OUT ADAPTIVE ENGINE (50% - 75% zoom)
+   ========================================= */
+@media (min-width: 1200px) {
+  .pricingGrid {
+    grid-template-columns: repeat(3, 1fr) !important;
+  }
+}
+
+@media (min-width: 1800px) {
+  .featuresGrid {
+    grid-template-columns: repeat(4, 1fr) !important;
+    gap: 32px !important;
+  }
+}
+
+@media (min-width: 2500px) {
+  .featuresGrid {
+    grid-template-columns: repeat(6, 1fr) !important;
+    gap: 28px !important;
+  }
+  .section {
+    max-width: min(95vw, 3400px) !important;
+  }
+  .hero {
+    max-width: min(95vw, 3400px) !important;
+  }
+  .heroContent {
+    max-width: min(90vw, 2600px) !important;
+  }
+  .heroDemoWrapper,
+  .interactiveDemo,
+  .pricingGrid,
+  .finalCta {
+    max-width: min(94vw, 2800px) !important;
+  }
 }

@@ -285,20 +285,83 @@ const LandingPage: React.FC<LandingPageProps> = ({ onStart, onLogin }) => {
 
       {/* 5. PRICING PREVIEW */}
       <section className={styles.section}>
+        <div style={{ textAlign: 'center', marginBottom: '20px' }}>
+          <span style={{
+            fontSize: '0.8rem',
+            fontWeight: 800,
+            textTransform: 'uppercase',
+            letterSpacing: '0.1em',
+            color: 'var(--accent-cyan)',
+            padding: '4px 14px',
+            borderRadius: '99px',
+            background: 'rgba(34, 211, 238, 0.1)',
+            border: '1px solid rgba(34, 211, 238, 0.25)'
+          }}>
+            Transparent Plans
+          </span>
+        </div>
         <h2 className={styles.sectionTitle}>Simple, Transparent Access</h2>
+        <p className={styles.subtitle} style={{ marginBottom: '48px' }}>
+          Start free forever or unlock unlimited AI processing, ATS resume templates, and multi-user live collaboration.
+        </p>
+
         <div className={styles.pricingGrid}>
+          {/* FREE PLAN */}
           <div className={styles.priceCard}>
-            <h3 style={{ fontSize: '1.5rem', color: 'var(--text-primary)' }}>Standard</h3>
+            <div className={styles.starterBadge}>Starter • 100% Free</div>
+            <h3 style={{ fontSize: '1.6rem', color: 'var(--text-primary)', marginTop: '8px' }}>Hobbyist</h3>
             <div className={styles.price}>$0<span>/mo</span></div>
-            <p style={{ color: 'var(--text-muted)' }}>100% Free • No credit card needed.</p>
+            <p style={{ color: 'var(--text-muted)', fontSize: '0.95rem' }}>Ideal for students, casual drafting, and quick editing.</p>
             <ul className={styles.priceList}>
-              <li><CheckCircle size={18} className={styles.priceIcon}/> All 14 Core AI Tools</li>
-              <li><CheckCircle size={18} className={styles.priceIcon}/> Gemini 3.8 Flash + Local NLP</li>
-              <li><CheckCircle size={18} className={styles.priceIcon}/> Instant Clipboard Copy & .txt Export</li>
-              <li><CheckCircle size={18} className={styles.priceIcon}/> Dark & Light Themes</li>
+              <li><CheckCircle size={18} className={styles.priceIcon}/> All 14 Core AI Writing Tools</li>
+              <li><CheckCircle size={18} className={styles.priceIcon}/> 1,500 words per day limit</li>
+              <li><CheckCircle size={18} className={styles.priceIcon}/> Standard Paraphrasing & Grammar Check</li>
+              <li><CheckCircle size={18} className={styles.priceIcon}/> Offline Local AI Fail-safe Engine</li>
+              <li><CheckCircle size={18} className={styles.priceIcon}/> Clipboard Copy & Plain Text Export</li>
             </ul>
-            <GlassButton variant="primary" onClick={() => handleGoToDashboard()} glow>
-              Launch Dashboard Now
+            <GlassButton variant="ghost" onClick={() => handleGoToDashboard()} style={{ width: '100%' }}>
+              Get Started Free
+            </GlassButton>
+          </div>
+
+          {/* PRO PLAN - FEATURED */}
+          <div className={`${styles.priceCard} ${styles.pricePro}`}>
+            <div className={styles.popularBadge}>🔥 Most Popular • Recommended</div>
+            <div className={styles.teamBadge} style={{ background: 'rgba(34, 211, 238, 0.15)', color: 'var(--accent-cyan)', borderColor: 'rgba(34, 211, 238, 0.3)' }}>
+              Pro Unlimited
+            </div>
+            <h3 style={{ fontSize: '1.6rem', color: 'var(--text-primary)', marginTop: '8px' }}>Pro Writer</h3>
+            <div className={styles.price} style={{ color: 'var(--accent-cyan)' }}>$9.99<span>/mo</span></div>
+            <p style={{ color: 'var(--text-muted)', fontSize: '0.95rem' }}>Full horsepower for serious authors, creators, and researchers.</p>
+            <ul className={styles.priceList}>
+              <li><CheckCircle size={18} style={{ color: 'var(--accent-cyan)' }}/> <strong>Unlimited Words & Processing</strong></li>
+              <li><CheckCircle size={18} style={{ color: 'var(--accent-cyan)' }}/> <strong>8+ Advanced Paraphrase & Tone Modes</strong></li>
+              <li><CheckCircle size={18} style={{ color: 'var(--accent-cyan)' }}/> <strong>ATS Resume Builder & Designer Templates</strong></li>
+              <li><CheckCircle size={18} style={{ color: 'var(--accent-cyan)' }}/> <strong>Full AI Origin & Plagiarism Detector</strong></li>
+              <li><CheckCircle size={18} style={{ color: 'var(--accent-cyan)' }}/> <strong>Real-Time Cloud Sync & Auto-Drafts</strong></li>
+              <li><CheckCircle size={18} style={{ color: 'var(--accent-cyan)' }}/> <strong>PDF, Word (.docx) & Markdown Export</strong></li>
+            </ul>
+            <GlassButton variant="primary" onClick={() => router.push('/pricing')} style={{ width: '100%' }} glow>
+              Upgrade to Pro Writer →
+            </GlassButton>
+          </div>
+
+          {/* TEAM PLAN */}
+          <div className={styles.priceCard}>
+            <div className={styles.teamBadge}>Teams & Agencies</div>
+            <h3 style={{ fontSize: '1.6rem', color: 'var(--text-primary)', marginTop: '8px' }}>Team Studio</h3>
+            <div className={styles.price}>$29<span>/mo</span></div>
+            <p style={{ color: 'var(--text-muted)', fontSize: '0.95rem' }}>Collaborative command center for editorial & agency teams.</p>
+            <ul className={styles.priceList}>
+              <li><CheckCircle size={18} className={styles.priceIcon}/> Everything in Pro Writer included</li>
+              <li><CheckCircle size={18} className={styles.priceIcon}/> 5 Team Seats & Shared Workspaces</li>
+              <li><CheckCircle size={18} className={styles.priceIcon}/> Multi-User Real-Time Co-Editing & Cursors</li>
+              <li><CheckCircle size={18} className={styles.priceIcon}/> Custom Brand Tone & Editorial Guidelines</li>
+              <li><CheckCircle size={18} className={styles.priceIcon}/> Centralized Team Billing & Member Roles</li>
+              <li><CheckCircle size={18} className={styles.priceIcon}/> Priority 24/7 Dedicated Concierge Support</li>
+            </ul>
+            <GlassButton variant="ghost" onClick={() => router.push('/pricing')} style={{ width: '100%' }}>
+              Start Team Plan →
             </GlassButton>
           </div>
         </div>

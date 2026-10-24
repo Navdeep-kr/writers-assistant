@@ -512,9 +512,13 @@ a {
   
   .dashboardContainer,
   .landingContainer,
-  .pageContainer {
-    max-width: min(92vw, 3200px) !important;
+  .pageContainer,
+  [class*="dashboardContainer"],
+  [class*="landingContainer"],
+  [class*="pageContainer"] {
+    max-width: min(94vw, 3400px) !important;
     margin: 0 auto !important;
+    width: 100% !important;
   }
 }
 
@@ -526,9 +530,13 @@ a {
 
   .dashboardContainer,
   .landingContainer,
-  .pageContainer {
-    max-width: min(92vw, 2500px) !important;
+  .pageContainer,
+  [class*="dashboardContainer"],
+  [class*="landingContainer"],
+  [class*="pageContainer"] {
+    max-width: min(94vw, 2700px) !important;
     margin: 0 auto !important;
+    width: 100% !important;
   }
 }
 
