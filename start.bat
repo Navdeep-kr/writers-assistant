@@ -1,30 +1,53 @@
 @echo off
+setlocal enabledelayedexpansion
+title AI Writing Assistant Studio
+
 echo =======================================================
 echo          AI Writing Assistant Suite Launcher
 echo =======================================================
-
 echo.
-echo [1/3] Checking dependencies...
-call npm install
-if %errorlevel% neq 0 (
-  echo Failed to install root dependencies.
-  pause
-  exit /b %errorlevel%
+
+:: 1. Check if ports 3000 and 4000 are already active
+netstat -ano | findstr ":3000 " >nul
+set PORT3000_BUSY=%errorlevel%
+
+netstat -ano | findstr ":4000 " >nul
+set PORT4000_BUSY=%errorlevel%
+
+if %PORT3000_BUSY%==0 (
+  if %PORT4000_BUSY%==0 (
+    echo [OK] Both Backend and Web App are ALREADY running!
+    echo.
+    echo   - Web Application: http://localhost:3000
+    echo   - Backend & WS:    http://localhost:4000
+    echo.
+    echo Opening application in your browser...
+    start http://localhost:3000
+    goto :end
+  )
 )
 
-echo.
-echo [2/3] Installing sub-project dependencies (might take a while on first run)...
-call npm run install:all
-if %errorlevel% neq 0 (
-  echo Failed to install sub-project dependencies.
-  pause
-  exit /b %errorlevel%
+:: 2. If node_modules does not exist, install root concurrently
+if not exist "node_modules\concurrently" (
+  echo [1/2] Installing runner dependencies...
+  call npm install --no-package-lock
 )
 
+:: 3. Delete any accidental root lockfile to prevent Turbopack monorepo misdetection
+if exist "package-lock.json" del /f /q "package-lock.json" >nul 2>&1
+
+:: 4. Start Backend and Web App
+echo [2/2] Starting Writing Assistant (Backend on :4000, Web on :3000)...
 echo.
-echo [3/3] Starting all services (Backend, Web App, Mobile App, Extension)...
-echo Note: The extension will be built to /extension/build/chrome-mv3-dev
+echo Application will be available at: http://localhost:3000
 echo.
+
+:: Open browser after a brief delay
+start /b cmd /c "timeout /t 5 /nobreak >nul && start http://localhost:3000"
+
+:: Start the servers
 call npm run dev
 
+:end
+echo.
 pause

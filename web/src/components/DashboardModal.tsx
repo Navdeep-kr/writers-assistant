@@ -34,10 +34,10 @@ const DashboardModal: React.FC<DashboardProps> = ({ isOpen, onClose, documents, 
             initial={{ opacity: 0, x: -300 }} animate={{ opacity: 1, x: 0 }} exit={{ opacity: 0, x: -300 }}
             transition={{ type: 'spring', damping: 25, stiffness: 200 }}
             style={{
-              position: 'fixed', top: 0, left: 0, width: '400px', height: '100vh',
+              position: 'fixed', top: 0, left: 0, width: 'min(400px, 92vw)', height: '100vh',
               background: 'var(--bg-card)', borderRight: '1px solid var(--glass-border-strong)', 
-              zIndex: 10000, padding: '32px', display: 'flex', flexDirection: 'column',
-              boxShadow: 'var(--shadow-lg)', color: 'var(--text-primary)'
+              zIndex: 10000, padding: 'clamp(18px, 4vw, 32px)', display: 'flex', flexDirection: 'column',
+              boxShadow: 'var(--shadow-lg)', color: 'var(--text-primary)', boxSizing: 'border-box'
             }}
           >
             <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '32px' }}>

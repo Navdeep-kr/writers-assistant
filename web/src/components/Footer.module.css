@@ -9,15 +9,15 @@
 }
 
 .footerTop {
-  max-width: 1400px;
+  max-width: min(94vw, 2400px);
   margin: 0 auto;
-  margin-bottom: 80px;
+  margin-bottom: clamp(40px, 6vh, 80px);
 }
 
 .footerGrid {
   display: grid;
-  grid-template-columns: repeat(5, 1fr);
-  gap: 40px;
+  grid-template-columns: repeat(auto-fit, minmax(min(220px, 100%), 1fr));
+  gap: clamp(24px, 3vw, 40px);
 }
 
 .footerColumn {
@@ -91,27 +91,32 @@
 .footerBottom {
   border-top: 1px solid var(--glass-border);
   padding-top: 40px;
-  max-width: 1400px;
+  max-width: min(94vw, 2400px);
   margin: 0 auto;
 }
 
 .bottomContent {
   display: flex;
-  justify-content: space-between;
+  flex-direction: column;
+  justify-content: center;
   align-items: center;
-  flex-wrap: wrap;
-  gap: 24px;
+  text-align: center;
+  gap: 16px;
 }
 
 .brandInfo {
   display: flex;
   flex-direction: column;
-  gap: 12px;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  gap: 8px;
 }
 
 .logo {
   display: flex;
   align-items: center;
+  justify-content: center;
   gap: 10px;
 }
 
@@ -128,15 +133,23 @@
 }
 
 .copyright {
-  font-size: 0.8rem;
+  font-size: 0.85rem;
   color: var(--text-muted);
 }
 
 .bottomLinks {
   display: flex;
   align-items: center;
-  gap: 24px;
+  justify-content: center;
+  gap: 16px;
   flex-wrap: wrap;
+}
+
+.linkDot {
+  color: var(--text-muted);
+  font-size: 0.8rem;
+  opacity: 0.6;
+  user-select: none;
 }
 
 .bottomLink {
@@ -148,19 +161,6 @@
 
 .bottomLink:hover {
   color: var(--text-secondary);
-}
-
-.languageSelector {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  font-size: 0.85rem;
-  color: var(--text-secondary);
-  background: var(--glass-bg);
-  padding: 6px 12px;
-  border-radius: 6px;
-  border: 1px solid var(--glass-border);
-  cursor: pointer;
 }
 
 @media (max-width: 1024px) {
@@ -175,12 +175,20 @@
   }
   .bottomContent {
     flex-direction: column;
-    align-items: flex-start;
+    align-items: center;
+    text-align: center;
   }
 }
 
 @media (max-width: 480px) {
+  .footer {
+    padding: 48px 16px 32px;
+  }
+  .footerTop {
+    margin-bottom: 40px;
+  }
   .footerGrid {
     grid-template-columns: 1fr;
+    gap: 32px;
   }
 }

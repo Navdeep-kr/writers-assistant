@@ -36,8 +36,9 @@ const Navbar: React.FC<NavbarProps> = ({
 
   return (
     <nav className={`${styles.navbar} ${className || ''}`}>
-      {/* Left: Brand Logo */}
-      <div className={styles.leftSection}>
+      <div className={styles.navbarInner}>
+        {/* Left: Brand Logo */}
+        <div className={styles.leftSection}>
         <Link href="/" className={styles.logo}>
           <div className={styles.logoIconWrapper}>
             <Zap size={18} />
@@ -135,6 +136,7 @@ const Navbar: React.FC<NavbarProps> = ({
             </button>
           </div>
         )}
+      </div>
       </div>
     </nav>
   );

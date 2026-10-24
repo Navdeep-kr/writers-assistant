@@ -7,11 +7,13 @@ import GlassButton from '@/components/ui/GlassButton';
 import { motion } from 'framer-motion';
 import { PROFESSIONAL_DATA } from '@/lib/professionalData';
 import { useAI } from '@/hooks/useAI';
+import { FileImportBar, UniversalExportDropdown } from '@/components/FileTransferComponents';
 
 export default function ProfessionalToolWorkspace() {
   const params = useParams();
   const router = useRouter();
-  const { generateProfessionalTool, loading } = useAI();
+  const ai = useAI();
+  const { generateProfessionalTool, loading } = ai;
   
   const categoryId = params.category as string;
   const toolId = params.toolId as string;
@@ -22,6 +24,8 @@ export default function ProfessionalToolWorkspace() {
   const [input, setInput] = useState('');
   const [output, setOutput] = useState('');
   const [wordCount, setWordCount] = useState(0);
+  const [attachedFile, setAttachedFile] = useState('');
+  const [copied, setCopied] = useState(false);
 
   useEffect(() => {
     if (input) {
@@ -58,8 +62,21 @@ export default function ProfessionalToolWorkspace() {
   const handleCopy = () => {
     if (output) {
       navigator.clipboard.writeText(output);
-      alert('Copied to clipboard!');
+      setCopied(true);
+      setTimeout(() => setCopied(false), 2500);
     }
+  };
+
+  const handleLoadSample = () => {
+    const samplePrompt = `Project / Request: ${tool.title} Specification
+Target Stakeholders: Executive Leadership & Cross-Functional Operations
+Key Parameters:
+- High priority quarterly objective
+- Measurable ROI within 60 days
+- Standard compliance with modern industry frameworks
+Context:
+${tool.description}`;
+    setInput(samplePrompt);
   };
 
   return (
@@ -77,12 +94,44 @@ export default function ProfessionalToolWorkspace() {
         </button>
       </header>
 
+      {/* Universal File Import Header */}
+      <div style={{ marginBottom: '24px' }}>
+        <FileImportBar
+          onFileLoaded={(text, fileName) => {
+            setInput(text);
+            setAttachedFile(fileName);
+          }}
+          ai={ai}
+          currentFileName={attachedFile}
+          onClearFile={() => setAttachedFile('')}
+          label={`Import File for ${tool.title} (PDF, DOCX, TXT, Images)`}
+        />
+      </div>
+
       <div className={styles.workspace}>
         {/* Input Area */}
         <div className={styles.inputArea}>
           <div className={styles.areaHeader}>
             <span className={styles.areaLabel}>PROMPT & CONTEXT</span>
-            <span className={styles.wordCount}>{wordCount} words</span>
+            <div style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
+              <button
+                type="button"
+                onClick={handleLoadSample}
+                style={{
+                  background: 'rgba(255, 255, 255, 0.06)',
+                  border: '1px solid var(--glass-border)',
+                  color: 'var(--accent-cyan)',
+                  padding: '4px 10px',
+                  borderRadius: '6px',
+                  fontSize: '0.75rem',
+                  fontWeight: 600,
+                  cursor: 'pointer'
+                }}
+              >
+                📋 Load Sample Template
+              </button>
+              <span className={styles.wordCount}>{wordCount} words</span>
+            </div>
           </div>
           <textarea 
             className={styles.textarea}
@@ -91,7 +140,7 @@ export default function ProfessionalToolWorkspace() {
             onChange={(e) => setInput(e.target.value)}
           />
           <div className={styles.areaFooter}>
-            <p className={styles.hint}>Tip: Provide specific details for the best AI results.</p>
+            <p className={styles.hint}>Tip: You can upload your document or click &apos;Load Sample Template&apos; to test immediately.</p>
             <GlassButton 
               variant="primary" 
               onClick={handleRun} 
@@ -111,7 +160,17 @@ export default function ProfessionalToolWorkspace() {
         <div className={styles.outputArea}>
           <div className={styles.areaHeader}>
             <span className={styles.areaLabel}>AI GENERATED OUTPUT</span>
-            {output && <button onClick={handleCopy} className={styles.copyBtn}>📋 Copy Result</button>}
+            {output && (
+              <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
+                <UniversalExportDropdown
+                  content={output}
+                  defaultTitle={tool.title.replace(/\s+/g, '_')}
+                  onCopy={handleCopy}
+                  copied={copied}
+                  printTargetId="professional-tool-output"
+                />
+              </div>
+            )}
           </div>
           <div className={styles.resultBox}>
             {loading ? (
@@ -121,9 +180,10 @@ export default function ProfessionalToolWorkspace() {
               </div>
             ) : output ? (
               <motion.div 
+                id="professional-tool-output"
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
-                className={styles.outputContent}
+                className={`${styles.outputContent} print-keep`}
               >
                 {output}
               </motion.div>
@@ -139,3 +199,4 @@ export default function ProfessionalToolWorkspace() {
     </div>
   );
 }
+

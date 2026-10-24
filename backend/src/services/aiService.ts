@@ -4,12 +4,14 @@ import { GoogleGenerativeAI } from '@google/generative-ai';
 import * as localAI from './localIntelligence.js';
 
 const openai = new OpenAI({
-  apiKey: process.env.OPENAI_API_KEY,
+  apiKey: process.env.OPENAI_API_KEY || 'dummy-key',
 });
 
 const genAI = new GoogleGenerativeAI(process.env.GEMINI_API_KEY || '');
-// gemini-3.8-flash is the active, high-performance model for this API key
-const geminiModel = genAI.getGenerativeModel({ model: 'gemini-3.8-flash' });
+const geminiModel = genAI.getGenerativeModel({ model: 'gemini-1.5-flash' });
+
+let geminiCooldownUntil = 0;
+let openaiCooldownUntil = 0;
 
 export interface WritingGoals {
   audience: 'general' | 'knowledgeable' | 'expert';
@@ -17,7 +19,7 @@ export interface WritingGoals {
   intent: 'inform' | 'describe' | 'convince' | 'tell-a-story';
 }
 
-function withTimeout<T>(promise: Promise<T>, ms: number = 5000): Promise<T> {
+function withTimeout<T>(promise: Promise<T>, ms: number = 3000): Promise<T> {
   return Promise.race([
     promise,
     new Promise<T>((_, reject) => setTimeout(() => reject(new Error(`Timeout after ${ms}ms`)), ms))
@@ -25,29 +27,30 @@ function withTimeout<T>(promise: Promise<T>, ms: number = 5000): Promise<T> {
 }
 
 /**
- * Robust Multi-Provider LLM Query Router
- * 1. Tries Gemini 3.8 Flash first (with 5s timeout)
- * 2. Tries OpenAI gpt-4o-mini as secondary (with 4s timeout)
- * 3. Falls through to local intelligence if both fail or timeout
+ * Robust Multi-Provider LLM Query Router with Instant Failover Circuit Breaker
+ * 1. Checks Gemini 1.5 Flash first (if available and not in cooldown)
+ * 2. Checks OpenAI gpt-4o-mini secondary (if available and not in cooldown)
+ * 3. Falls through to ultra-fast local intelligence immediately if in cooldown or failed
  */
 export async function queryLLM(systemPrompt: string, userContent: string = '', jsonMode: boolean = false): Promise<string> {
   const fullPrompt = userContent ? `${systemPrompt}\n\nContent:\n${userContent}` : systemPrompt;
 
   // 1. Primary Provider: Google Gemini
-  if (process.env.GEMINI_API_KEY) {
+  if (process.env.GEMINI_API_KEY && Date.now() > geminiCooldownUntil) {
     try {
-      const result: any = await withTimeout(geminiModel.generateContent(fullPrompt), 5000);
-      const text = result.response.text();
+      const result: any = await withTimeout(geminiModel.generateContent(fullPrompt), 3000);
+      const text = result?.response?.text();
       if (text && text.trim().length > 0) {
         return text.trim();
       }
     } catch (geminiError: any) {
-      console.warn('Gemini query error/timeout:', geminiError.message);
+      console.warn('Gemini query error/timeout (activating 60s cooldown):', geminiError.message);
+      geminiCooldownUntil = Date.now() + 60000;
     }
   }
 
   // 2. Secondary Provider: OpenAI
-  if (process.env.OPENAI_API_KEY) {
+  if (process.env.OPENAI_API_KEY && Date.now() > openaiCooldownUntil) {
     try {
       const messages: any[] = [{ role: 'system', content: systemPrompt }];
       if (userContent) messages.push({ role: 'user', content: userContent });
@@ -58,13 +61,14 @@ export async function queryLLM(systemPrompt: string, userContent: string = '', j
       if (jsonMode) {
         options.response_format = { type: 'json_object' };
       }
-      const response: any = await withTimeout(openai.chat.completions.create(options), 4000);
+      const response: any = await withTimeout(openai.chat.completions.create(options), 3000);
       const content = response.choices[0]?.message?.content;
       if (content && content.trim().length > 0) {
         return content.trim();
       }
     } catch (openaiError: any) {
-      console.warn('OpenAI query error/timeout:', openaiError.message);
+      console.warn('OpenAI query error/timeout (activating 60s cooldown):', openaiError.message);
+      openaiCooldownUntil = Date.now() + 60000;
     }
   }
 

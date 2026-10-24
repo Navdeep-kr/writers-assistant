@@ -1625,6 +1625,141 @@
   width: 100%;
 }
 
+/* ==========================================================================
+   FEATURE TOOLS RESPONSIVE & ZOOM OPTIMIZATION
+   ========================================================================== */
+
+@media (max-width: 1024px) {
+  .workspace {
+    flex-direction: column !important;
+    min-height: auto !important;
+  }
+
+  .divider {
+    width: 100% !important;
+    height: 1px !important;
+    min-height: 1px !important;
+  }
+
+  .inputArea,
+  .outputArea {
+    width: 100% !important;
+    min-height: 320px;
+    padding: 1.25rem 1rem;
+  }
+
+  .header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 14px;
+    padding: 20px;
+  }
+
+  .headerText h1 {
+    font-size: 1.75rem;
+    margin-top: 8px;
+  }
+
+  .editorGrid {
+    grid-template-columns: 1fr !important;
+  }
+
+  .forensicGrid {
+    grid-template-columns: 1fr !important;
+  }
+
+  .ieeeColumns {
+    column-count: 1 !important;
+  }
+}
+
+@media (max-width: 768px) {
+  .header {
+    padding: 16px;
+  }
+
+  .headerText h1 {
+    font-size: 1.45rem;
+  }
+
+  .headerText p {
+    font-size: 0.95rem;
+  }
+
+  .textarea {
+    font-size: 1rem;
+    min-height: 160px;
+  }
+
+  .tplSiliconSplit {
+    flex-direction: column !important;
+  }
+
+  .siliconSidebar {
+    width: 100% !important;
+    min-width: 100% !important;
+    border-right: none !important;
+    border-bottom: 1.5px solid var(--glass-border) !important;
+    padding: 18px 16px !important;
+  }
+
+  .siliconMain {
+    width: 100% !important;
+    padding: 18px 16px !important;
+  }
+
+  .fileTransferBar {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 8px;
+  }
+
+  .uploadTriggerBtn {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .resumeToolbar,
+  .sampleRow,
+  .templateSelector,
+  .sampleBar {
+    flex-wrap: wrap !important;
+    gap: 8px !important;
+  }
+
+  .exportDropdownWrapper {
+    width: 100%;
+  }
+
+  .exportDropdownTrigger {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .exportMenuDropdown {
+    width: 100%;
+    min-width: 100%;
+    left: 0;
+    right: 0;
+  }
+}
+
+@media (max-width: 480px) {
+  .header {
+    padding: 12px;
+  }
+
+  .iconWrapper {
+    width: 48px;
+    height: 48px;
+    font-size: 1.5rem;
+  }
+
+  .actionBtn {
+    width: 100%;
+  }
+}
+
 @media print {
   .toolContainer > .header,
   .inputArea,

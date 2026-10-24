@@ -4,11 +4,11 @@
       "id": "user-1",
       "email": "demo@writingassistant.ai",
       "password": "password123",
-      "token": "mock-jwt-742ebbaf-abca-473f-aeb3-b8dcd1bce1f1",
+      "token": "mock-jwt-978c4bfa-4526-4d9c-91c1-f6eb82871ce2",
       "xp": 450,
       "level": 4,
       "streak": 12,
-      "lastLogin": "2026-10-16T17:30:24.325Z"
+      "lastLogin": "2026-10-24T14:57:02.822Z"
     },
     {
       "id": "usr-1ed42e69-b4ad-4497-aec5-069ca5412cd9",
@@ -81,6 +81,18 @@
       "level": 1,
       "streak": 1,
       "lastLogin": "2026-10-16T19:34:42.407Z"
+    },
+    {
+      "id": "usr-186b97a8-f7bf-4aaa-9d1b-80bf74ad03ae",
+      "name": "Quality Tester",
+      "email": "test_1792853821857@example.com",
+      "phoneNumber": "",
+      "password": "password123",
+      "token": "mock-jwt-765244e0-e3a1-4916-88ce-a512c273c69b",
+      "xp": 100,
+      "level": 1,
+      "streak": 1,
+      "lastLogin": "2026-10-24T14:57:02.819Z"
     }
   ],
   "documents": []

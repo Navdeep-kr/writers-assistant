@@ -2,8 +2,8 @@
   "name": "writing-assistant-suite",
   "version": "1.0.0",
   "scripts": {
-    "dev": "concurrently \"cd web && npm run dev\" \"cd backend && npm run dev\" \"cd extension && npm run dev\" \"cd mobile && npm run web\"",
-    "install:all": "npm install && npm install --prefix web && npm install --prefix backend && npm install --prefix extension && npm install --prefix mobile",
+    "dev": "concurrently -n \"backend,web\" -c \"blue,green\" \"npm --prefix backend run dev\" \"npm --prefix web run dev\"",
+    "dev:all": "concurrently \"cd web && npm run dev\" \"cd backend && npm run dev\" \"cd extension && npm run dev\" \"cd mobile && npm run web\"",
     "web": "cd web && npm run dev",
     "backend": "cd backend && npm run dev",
     "extension": "cd extension && npm run dev",

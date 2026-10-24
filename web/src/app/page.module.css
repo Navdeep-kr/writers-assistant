@@ -1,7 +1,8 @@
 .dashboardContainer {
   min-height: calc(100vh - 60px);
-  padding: 84px 2rem 4rem 2rem;
-  max-width: 1440px;
+  padding: clamp(76px, 6vh, 96px) clamp(1rem, 3vw, 3rem) 4rem clamp(1rem, 3vw, 3rem);
+  max-width: min(94vw, 2400px);
+  width: 100%;
   margin: 0 auto;
   color: var(--text-primary);
   font-family: var(--font-main);
@@ -458,7 +459,7 @@
 /* Tools Grid */
 .toolsGrid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(min(320px, 100%), 1fr));
   gap: 1.5rem;
 }
 
@@ -607,7 +608,7 @@
 
 .draftsGrid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(min(280px, 100%), 1fr));
   gap: 1.25rem;
 }
 
@@ -721,5 +722,24 @@
   .headerSection {
     flex-direction: column;
     align-items: flex-start;
+  }
+}
+
+@media (max-width: 480px) {
+  .dashboardContainer {
+    padding: 70px 0.75rem 2rem 0.75rem;
+  }
+
+  .mainTitle {
+    font-size: 1.5rem;
+  }
+
+  .toolCard {
+    padding: 1.25rem;
+  }
+
+  .quickActionsSection {
+    padding: 0.85rem;
+    gap: 0.75rem;
   }
 }

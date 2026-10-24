@@ -1,7 +1,21 @@
 import React from 'react';
+import type { Metadata } from 'next';
 import styles from '../info-page.module.css';
 import GlassButton from '@/components/ui/GlassButton';
 import { CheckCircle, Zap, Star } from 'lucide-react';
+
+export const metadata: Metadata = {
+  title: "Pricing & Plans — Transparent Subscription Tiers",
+  description: "Explore affordable pricing plans for Writing Assistant. Free forever plan available. Upgrade to Pro for unlimited paraphrasing, ATS resume templates, and multi-modal file imports.",
+  alternates: {
+    canonical: '/pricing',
+  },
+  openGraph: {
+    title: "Pricing & Plans — Writing Assistant",
+    description: "Start free or unlock unlimited Pro writing intelligence for just $9.99/mo.",
+    url: "https://writingassistant.app/pricing",
+  }
+};
 
 export default function PricingPage() {
   return (

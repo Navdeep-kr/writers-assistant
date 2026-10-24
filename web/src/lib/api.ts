@@ -7,4 +7,16 @@ const api = axios.create({
   },
 });
 
+// Automatically inject Authorization header if auth token exists in localStorage
+api.interceptors.request.use((config) => {
+  if (typeof window !== 'undefined') {
+    const token = localStorage.getItem('writing_assistant_auth_token');
+    if (token && !config.headers['Authorization']) {
+      config.headers['Authorization'] = `Bearer ${token}`;
+    }
+  }
+  return config;
+});
+
 export default api;
+

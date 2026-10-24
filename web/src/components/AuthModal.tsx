@@ -153,9 +153,10 @@ const AuthModal: React.FC<AuthModalProps> = ({
             position: 'relative',
             background: 'var(--bg-card)',
             border: '1px solid var(--glass-border-strong)', 
-            borderRadius: '24px', padding: '36px', width: '100%', maxWidth: '460px',
+            borderRadius: '24px', padding: 'clamp(20px, 4vw, 36px)', width: '100%', maxWidth: 'min(460px, 92vw)',
+            maxHeight: '90vh', overflowY: 'auto',
             boxShadow: 'var(--shadow-lg), 0 0 40px rgba(34, 211, 238, 0.08)',
-            color: 'var(--text-primary)'
+            color: 'var(--text-primary)', boxSizing: 'border-box'
           }}
         >
           {/* Close Button */}
